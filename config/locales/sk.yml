@@ -1,0 +1,78 @@
+sk:
+  flag_icon:
+    en: "us"
+    sk: "sk"
+  en: "Angličtina"
+  sk: "Slovenčina"
+  title: "ASOS CMS"
+  devise:
+    login_btn: "Prihlásiť sa"
+    login: "Prihlásenie"
+    signup_btn: "Registrovať sa"
+    signup: "Registrácia"
+    update_btn: "Aktualizovať"
+    password: "Heslo"
+    password_confirmation: "Potvrdenie hesla"
+    current_password: "Aktuálne heslo"
+    dont_have_account_yet: "Ešte nemáte účet?"
+    already_have_account: "Už máte účet?"
+    forgot_password: "Zabudnuté heslo"
+    first_name: "Krstné meno"
+    last_name: "Priezvisko"
+    password_leave_blank: "Nechajte prázdne ak nechcete zmeniť"
+    current_password_confirmation: "Zadajte aktuálne heslo pre potvrdenie zmien"
+    bio: "Popis (Pár slov o tebe)"
+    didnt_receive_confirmation: "Nedostali ste inštrukcie k potvrdeniu?"
+    didnt_receive_unlock: "Nedostali ste inštrukcie k odomknutiu?"
+    minimum_characters: "znakov minimum"
+  description: "Jednoduchý redakčný systém pre každého! Zdieľajte svoje myšlienky, komentáre a vymieňajte si správy."
+  footer:
+    follow: "Sledujte nás na"
+    or: "alebo na"
+    welcome: "vitajte v ASOS CMS."
+  header:
+    overview: "Prehľad"
+    edit_profile: "Upraviť profil"
+    my_profile: "Môj profil"
+    log_out: "Odhlásiť sa"
+    log_in: "Prihlásiť sa"
+    sign_up: "Registrovať sa"
+  edit: "Upraviť"
+  back: "Späť"
+  delete: "Odstrániť"
+  delete_confirmatiom: "Ste si istý?"
+  show: "Zobraziť"
+  action: "Akcia"
+  users: "Používatelia"
+  name: "Meno"
+
+  views:
+    pagination:
+      first: "&laquo;"
+      last: "&raquo;"
+      previous: "&lsaquo;"
+      next: "&rsaquo;"
+      truncate: "..."
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "Žiadne dostupné výsledky"
+          one: "Zobrazený <b>1</b> výsledok"
+          other: "Zobrazených <b>všetkých %{count}</b> výsledkov"
+      more_pages:
+        display_entries: "Zobrazených <b>%{first}&nbsp;-&nbsp;%{last}</b> výsledkov z celkových <b>%{total}</b>"
+
+  notice:
+    not_authorized: "Nemáte oprávnenie na manipuláciu"
+
+  order:
+    order: "Zoradiť"
+    order_by: "Zoradiť podľa"
+    title_asc: "Názov ▲"
+    title_desc: "Názov ▼"
+    invalid_value: "Neplatný parameter na zoradenie"
+    submit: "Zadať"
+    search: "Vyhľadávanie"
+
+  not_authorized: "Nemáte oprávnenie na manipuláciu"

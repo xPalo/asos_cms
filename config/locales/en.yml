@@ -1,33 +1,82 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   "true": "foo"
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  flag_icon:
+    en: "us"
+    sk: "sk"
+  en: "English"
+  sk: "Slovak"
+  title: "ASOS CMS"
+  devise:
+    login_btn: "Log in"
+    login: "Login"
+    signup_btn: "Sign up"
+    signup: "Signup"
+    login_google_btn: "Log in via Google"
+    signup_google_btn: "Sign up via Google"
+    update_btn: "Update"
+    password: "Password"
+    password_confirmation: "Password confirmation"
+    current_password: "Current password"
+    dont_have_account_yet: "Don't have an account yet?"
+    already_have_account: "Have account already?"
+    forgot_password: "Forgot your password?"
+    first_name: "First name"
+    last_name: "Last name"
+    password_leave_blank: "Leave blank if you don't want to change it"
+    current_password_confirmation: "We need your current password to confirm changes"
+    bio: "Bio (A few words about you)"
+    didnt_receive_confirmation: "Didn't receive confirmation instructions?"
+    didnt_receive_unlock: "Didn't receive unlock instructions?"
+    minimum_characters: "characters minimum"
+  description: "Simple content management system for everyone! Share your thoughts, comments and exchange messages."
+  footer:
+    follow: "Follow us on"
+    or: "or"
+    welcome: "welcome to ASOS CMS."
+  header:
+    overview: "Overview"
+    edit_profile: "Edit profile"
+    my_profile: "My profile"
+    log_out: "Log out"
+    log_in: "Log in"
+    sign_up: "Sign up"
+  edit: "Edit"
+  back: "Back"
+  delete: "Delete"
+  delete_confirmatiom: "Are you sure?"
+  show: "Show"
+  action: "Action"
+  users: "Users"
+  name: "Name"
+
+  views:
+    pagination:
+      first: "&laquo;"
+      last: "&raquo;"
+      previous: "&lsaquo;"
+      next: "&rsaquo;"
+      truncate: "..."
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "No results found"
+          one: "Displaying <b>1</b> result"
+          other: "Displaying <b>all %{count}</b> results"
+      more_pages:
+        display_entries: "Displaying <b>%{first}&nbsp;-&nbsp;%{last}</b> results from <b>%{total} in total</b>"
+
+  notice:
+    not_authorized: "You're not authorized to manipulate"
+
+  order:
+    order: "Order"
+    order_by: "Order by"
+    title_asc: "Title ▲"
+    title_desc: "Title ▼"
+    invalid_value: "Invalid sorting parameter"
+    submit: "Submit"
+    search: "Search"
+  quote_of_the_day: "Quote of the day"
+  quote_source: "Quote source"
+  video_loading_fail: "Something went wrong :("
+  not_authorized: "You are not authorized to manipulate"

@@ -1,0 +1,21 @@
+<div>
+  <%= link_to I18n.t("title"), root_path, class:"navbar-brand fs-2 my-auto fw-bold float-md-start text-white" %>
+  <nav class="nav nav-masthead justify-content-center float-md-end m-0">
+    <% if user_signed_in? %>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <%= I18n.t(:'header.my_profile') %>
+        </a>
+        <ul class="dropdown-menu">
+          <li><%= link_to I18n.t(:'header.overview'), user_path(id: current_user.id), class:"nav-link text-dark fw-bold px-2" %></li>
+          <li><%= link_to I18n.t(:'header.edit_profile'), edit_user_registration_path, class:"nav-link text-dark fw-bold px-2" %></li>
+        </ul>
+      </li>
+      <%= button_to I18n.t(:'header.log_out'), destroy_user_session_path, method: :delete, class:"btn btn-link nav-link fw-bold px-2 text-danger danger" %>
+    <% else %>
+      <%= link_to I18n.t(:'header.sign_up'), new_user_registration_path, class:"nav-link fw-bold px-2 #{current_class?(new_user_registration_path, "light")}" %>
+      <%= link_to I18n.t(:'header.log_in'), new_user_session_path, class:"nav-link fw-bold px-2 text-info #{current_class?(new_user_session_path, "info")}" %>
+    <% end %>
+
+  </nav>
+</div>
