@@ -2,9 +2,11 @@ en:
   flag_icon:
     en: "us"
     sk: "sk"
+
   en: "English"
   sk: "Slovak"
   title: "ASOS CMS"
+
   devise:
     login_btn: "Log in"
     login: "Login"
@@ -27,11 +29,14 @@ en:
     didnt_receive_confirmation: "Didn't receive confirmation instructions?"
     didnt_receive_unlock: "Didn't receive unlock instructions?"
     minimum_characters: "characters minimum"
+
   description: "Simple content management system for everyone! Share your thoughts, comments and exchange messages."
+
   footer:
     follow: "Follow us on"
     or: "or"
     welcome: "welcome to ASOS CMS."
+
   header:
     overview: "Overview"
     edit_profile: "Edit profile"
@@ -40,6 +45,7 @@ en:
     log_in: "Log in"
     sign_up: "Sign up"
     settings: "Settings"
+
   edit: "Edit"
   back: "Back"
   delete: "Delete"
@@ -48,6 +54,9 @@ en:
   action: "Action"
   users: "Users"
   name: "Name"
+  submit: "Submit"
+  button_new: "Create"
+  button_edit: "Update"
 
   views:
     pagination:
@@ -56,6 +65,7 @@ en:
       previous: "&lsaquo;"
       next: "&rsaquo;"
       truncate: "..."
+
   helpers:
     page_entries_info:
       one_page:
@@ -74,14 +84,37 @@ en:
     order_by: "Order by"
     title_asc: "Title ▲"
     title_desc: "Title ▼"
+    content_asc: "Content ▲"
+    content_desc: "Content ▼"
+    votes_asc: "Votes ▲"
+    votes_desc: "Votes ▼"
+    comments_count_asc: "Comments count ▲"
+    comments_count_desc: "Comments count ▼"
     invalid_value: "Invalid sorting parameter"
     submit: "Submit"
     search: "Search"
+
   quote_of_the_day: "Quote of the day"
   quote_source: "Quote source"
   video_loading_fail: "Something went wrong :("
   not_authorized: "You are not authorized to manipulate"
+
   setting:
     has_darkmode: "Darkmode"
     default_locale: "Default language"
     updated: "Settings updated successfully"
+
+  post:
+    index: "Posts"
+    show: "Post"
+    edit: "Edit post"
+    new: "New post"
+    updated: "Post updated successfully"
+    created: "Post created successfully"
+    deleted: "Post deleted successfully"
+    title: "Title"
+    content: "Content"
+    author: "Author"
+    downvotes: "Downvotes"
+    upvotes: "Upvotes"
+    is_public: "Is public?"

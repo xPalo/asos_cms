@@ -5,6 +5,8 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
 
   has_one :setting, class_name: 'Setting', foreign_key: 'user_id', dependent: :destroy
+  has_many :posts, class_name: 'Post', foreign_key: 'user_id', dependent: :destroy
+  has_many :comments, class_name: 'Comment', foreign_key: 'user_id', dependent: :destroy
 
   after_save :create_setting
 

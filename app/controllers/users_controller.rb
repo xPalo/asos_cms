@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user_posts = Post.where(user_id: current_user.id)
   end
 
   private

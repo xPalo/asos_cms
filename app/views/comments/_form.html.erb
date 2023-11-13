@@ -1,0 +1,25 @@
+<h1 class="text-center"> <%= t(:"comment.#{action}") %> </h1>
+
+<div class="form-signin my-4 mx-auto w-75">
+  <%= form_with(model: comment) do |form| %>
+
+    <div>
+      <%= form.label t(:'post.title') %>
+      <%= form.text_field :title, class:"form-control"%>
+    </div>
+
+    <div>
+      <%= form.label t(:'post.content') %>
+      <%= form.text_area(:content, class:"form-control") %>
+    </div>
+
+    <%= form.hidden_field :user_id, value: current_user.id %>
+    <%= form.hidden_field :post_id, value: comment.post_id %>
+
+    <hr>
+
+    <div class="actions">
+      <%= form.submit t(:"button_#{action}"), class:"btn btn-lg btn-light my-auto" %>
+    </div>
+  <% end %>
+</div>

@@ -2,10 +2,12 @@ sk:
   flag_icon:
     en: "us"
     sk: "sk"
+
   en: "Angličtina"
   sk: "Slovenčina"
   title: "ASOS CMS"
   settings: "Nastavenia"
+
   devise:
     login_btn: "Prihlásiť sa"
     login: "Prihlásenie"
@@ -26,11 +28,14 @@ sk:
     didnt_receive_confirmation: "Nedostali ste inštrukcie k potvrdeniu?"
     didnt_receive_unlock: "Nedostali ste inštrukcie k odomknutiu?"
     minimum_characters: "znakov minimum"
+
   description: "Jednoduchý redakčný systém pre každého! Zdieľajte svoje myšlienky, komentáre a vymieňajte si správy."
+
   footer:
     follow: "Sledujte nás na"
     or: "alebo na"
     welcome: "vitajte v ASOS CMS."
+
   header:
     overview: "Prehľad"
     edit_profile: "Upraviť profil"
@@ -39,6 +44,7 @@ sk:
     log_in: "Prihlásiť sa"
     sign_up: "Registrovať sa"
     settings: "Nastavenia"
+
   edit: "Upraviť"
   back: "Späť"
   delete: "Odstrániť"
@@ -47,6 +53,9 @@ sk:
   action: "Akcia"
   users: "Používatelia"
   name: "Meno"
+  submit: "Odoslať"
+  button_new: "Vytvoriť"
+  button_edit: "Aktualizovať"
 
   views:
     pagination:
@@ -55,6 +64,7 @@ sk:
       previous: "&lsaquo;"
       next: "&rsaquo;"
       truncate: "..."
+
   helpers:
     page_entries_info:
       one_page:
@@ -71,14 +81,36 @@ sk:
   order:
     order: "Zoradiť"
     order_by: "Zoradiť podľa"
-    title_asc: "Názov ▲"
-    title_desc: "Názov ▼"
+    title_asc: "Nadpis ▲"
+    title_desc: "Nadpis ▼"
+    content_asc: "Obsah ▲"
+    content_desc: "Obsah ▼"
+    votes_asc: "Hodnotenie ▲"
+    votes_desc: "Hodnotenie ▼"
+    comments_count_asc: "Počet komentárov ▲"
+    comments_count_desc: "Počet komentárov ▼"
     invalid_value: "Neplatný parameter na zoradenie"
     submit: "Zadať"
     search: "Vyhľadávanie"
+
   setting:
     has_darkmode: "Tmavý mód"
     default_locale: "Predvolený jazyk"
     updated: "Nastavenia úspešne upravené"
+
+  post:
+    index: "Príspevky"
+    show: "Príspevok"
+    edit: "Upraviť príspevok"
+    new: "Nový príspevok"
+    updated: "Príspevok úspešne upravený"
+    created: "Príspevok úspešne vytvorený"
+    deleted: "Príspevok úspešne odstránený"
+    title: "Nadpis"
+    content: "Obsah"
+    author: "Autor"
+    downvotes: "Hlasy proti"
+    upvotes: "Hlasy za"
+    is_public: "Verejný?"
 
   not_authorized: "Nemáte oprávnenie na manipuláciu"

@@ -1,0 +1,94 @@
+<ul class="nav mb-3 d-flex justify-content-center text-center" id="pills-tab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button id="methodAbtn" class="active btn btn-sm btn-outline-light mx-2" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#methodA" type="button" role="tab" aria-controls="pills-home" aria-selected="true"><%= t(:'posts') %></button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button id="methodBbtn" class="btn btn-sm btn-outline-light mx-2" data-bs-toggle="pill" data-bs-target="#methodB" type="button" role="tab" aria-controls="pills-contact" aria-selected="false"><%= t('users') %></button>
+  </li>
+</ul>
+
+<div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="methodA" role="tabpanel" aria-labelledby="pills-home-tab">
+
+    <form action="explore" method="get" class="form mb-3 justify-content-center text-center my-auto">
+      <div class="form-group d-flex justify-content-center my-auto mb-2">
+        <input type="text" id="search" name="search" placeholder="<%= t('order.search') %>" class="form-control w-50 mx-2" value="<%= params[:search] %>">
+      </div>
+      <div class="form-group d-flex justify-content-center my-auto mb-2">
+        <select class="form-select w-50 d-flex justify-content-center" aria-label="default select form-select example" name="order">
+          <option value="" disabled <%= 'selected' if params[:order].blank? %> ><%= t(:'order.order_by') %></option>
+          <% %w(title_asc title_desc content_asc content_desc votes_asc votes_desc comments_count_asc comments_count_desc).each do |attr| %>
+            <option value="<%= attr %>" <%= 'selected' if params[:order] == attr %>><%= t("order.#{attr}") %></option>
+          <% end %>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-outline-light mx-2"><%= t(:'order.submit') %></button>
+    </form>
+
+    <% if @can_reset %>
+      <form action="explore" method="get" class="form-signin m-3">
+        <div class="form-group d-flex justify-content-center my-auto">
+          <input type="hidden" id="search" name="search" class="form-control w-50 mx-2" value="">
+          <input type="hidden" id="search" name="order" class="form-control w-50 mx-2" value="">
+          <button type="submit" class="btn btn-outline-warning mx-2"><%= t(:reset_search) %></button>
+        </div>
+      </form>
+    <% end %>
+
+    <% if @posts.length > 0 %>
+      <% @posts.each do |post| %>
+      <div class="card bg-dark p-4 my-2">
+        <div class="d-flex my-auto">
+          <div class="text-start">
+            <%= link_to "#{post.title}", post, class:"text-light text-decoration-none h1 fw-bold" %>
+              <p class="card-text">
+                <strong><%= post.content %></strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+    <%= page_entries_info @posts %>
+    <%= paginate @posts, :remote => true, :param_name => "posts_page", theme: 'bootstrap-5', pagination_class: "my-3 pagination-sm flex-wrap justify-content-center" %>
+  </div>
+
+  <div class="tab-pane fade" id="methodB" role="tabpanel" aria-labelledby="pills-home-tab">
+    <% if @users.length > 0 %>
+      <% @users.each do |user| %>
+        <%= render partial: "users/user_card", locals: {user: user}  %>
+      <% end %>
+    <% end %>
+
+    <%= page_entries_info @users %>
+    <%= paginate @users, :remote => true, :param_name => "users_page", theme: 'bootstrap-5', pagination_class: "my-3 pagination-sm flex-wrap justify-content-center" %>
+  </div>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+
+    document.getElementById("methodAbtn").addEventListener("click", function(event){
+        localStorage.setItem("explore_category", "methodAbtn");
+    });
+    document.getElementById("methodBbtn").addEventListener("click", function(event){
+        localStorage.setItem("explore_category", "methodBbtn");
+    });
+
+    $(document).ready(function()
+    {
+        if (localStorage.getItem("explore_category"))
+        {
+            document.getElementById("methodAbtn").setAttribute("class", "btn btn-sm btn-outline-light mx-2");
+            document.getElementById("methodBbtn").setAttribute("class", "btn btn-sm btn-outline-light mx-2");
+            document.getElementById(localStorage.getItem("explore_category")).setAttribute("class", "active btn btn-sm btn-outline-light mx-2");
+        }
+        else
+        {
+            localStorage.setItem("explore_category", "methodAbtn")
+        }
+    });
+
+    $(`#${localStorage.getItem("explore_category")}`).click();
+
+</script>

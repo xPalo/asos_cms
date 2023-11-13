@@ -1,0 +1,24 @@
+<div id="users" class="text-center mx-auto w-100">
+  <table class="table table-hover table-active text-light">
+    <thead>
+      <tr>
+        <th scope="col"><%= t('post.title') %></th>
+        <th scope="col"><%= t('post.content') %></th>
+        <th scope="col"><%= t('post.comments_count') %></th>
+        <th scope="col"><%= t('post.votes') %></th>
+        <th scope="col"><%= t('post.is_public') %></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @user_posts.each do |post| %>
+      <tr class="text-light">
+        <td><%= link_to post.title, post, class:"text-light" %></td>
+        <td><%= link_to post.content.first(20), post, class:"text-light" %></td>
+        <td><%= link_to post.comments_count, post, class:"text-light" %></td>
+        <td><%= link_to post.votes, post, class:"text-light" %></td>
+        <td><%= link_to post.is_public, post, class:"text-light" %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
