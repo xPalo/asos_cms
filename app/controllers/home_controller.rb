@@ -2,6 +2,7 @@ class HomeController < ApplicationController
   def index
   end
 
+  ap 'som tu'
   def change_locale
     lang = params[:locale].to_s.strip.to_sym
     lang = I18n.default_locale unless I18n.available_locales.include?(lang)
