@@ -39,6 +39,7 @@ en:
     log_out: "Log out"
     log_in: "Log in"
     sign_up: "Sign up"
+    settings: "Settings"
   edit: "Edit"
   back: "Back"
   delete: "Delete"
@@ -80,3 +81,7 @@ en:
   quote_source: "Quote source"
   video_loading_fail: "Something went wrong :("
   not_authorized: "You are not authorized to manipulate"
+  setting:
+    has_darkmode: "Darkmode"
+    default_locale: "Default language"
+    updated: "Settings updated successfully"

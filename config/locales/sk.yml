@@ -5,6 +5,7 @@ sk:
   en: "Angličtina"
   sk: "Slovenčina"
   title: "ASOS CMS"
+  settings: "Nastavenia"
   devise:
     login_btn: "Prihlásiť sa"
     login: "Prihlásenie"
@@ -37,6 +38,7 @@ sk:
     log_out: "Odhlásiť sa"
     log_in: "Prihlásiť sa"
     sign_up: "Registrovať sa"
+    settings: "Nastavenia"
   edit: "Upraviť"
   back: "Späť"
   delete: "Odstrániť"
@@ -74,5 +76,9 @@ sk:
     invalid_value: "Neplatný parameter na zoradenie"
     submit: "Zadať"
     search: "Vyhľadávanie"
+  setting:
+    has_darkmode: "Tmavý mód"
+    default_locale: "Predvolený jazyk"
+    updated: "Nastavenia úspešne upravené"
 
   not_authorized: "Nemáte oprávnenie na manipuláciu"

@@ -4,7 +4,19 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true
 
+  has_one :setting, class_name: 'Setting', foreign_key: 'user_id', dependent: :destroy
+
+  after_save :create_setting
+
   def full_name
     "#{self.first_name} #{self.last_name}"
+  end
+
+  private
+
+  def create_setting
+    return if setting.present?
+
+    Setting.create!(user_id: id)
   end
 end

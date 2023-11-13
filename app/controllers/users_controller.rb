@@ -14,5 +14,4 @@ class UsersController < ApplicationController
   def set_user
     @user = User.where(id: params[:id])
   end
-
 end

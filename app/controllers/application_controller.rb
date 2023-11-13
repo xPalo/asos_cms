@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
     if cookies[:lang] && I18n.available_locales.include?(cookies[:lang].to_s.strip.to_sym)
       lang = cookies[:lang].to_s.strip.to_sym
     else
-      lang = I18n.default_locale
+      lang = current_user.try(:setting).try(:default_locale) || I18n.default_locale
       cookies[:lang] = lang
     end
     I18n.locale = lang
