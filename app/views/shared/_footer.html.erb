@@ -1,16 +1,16 @@
 <div class="d-flex justify-content-center align-items-center mb-3">
   <div>
     <% if user_signed_in? %>
-      <b><%= current_user.full_name %></b>, <%= t(:'footer.welcome') %>
+      <b><%= current_user.full_name %></b>, <%= t('footer.welcome') %>
     <% end %>
-    <%= t(:'footer.follow') %> <a href="https://github.com/xPalo/asos_cms" class="text-white" target="_blank" >GitHub</a>
+    <%= t('footer.follow') %> <a href="https://github.com/xPalo/asos_cms" class="text-white" target="_blank" >GitHub</a>
   </div>
 
   <div class="m-2">|</div>
 
   <div class="dropdown language" id="dropdown">
     <button class="btn btn-sm btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <span class="flag-icon flag-icon-<%= t(:"flag_icon.#{I18n.locale}") %>"></span> <%= t("#{I18n.locale}") %>
+      <span class="flag-icon flag-icon-<%= t("flag_icon.#{I18n.locale}") %>"></span> <%= t("#{I18n.locale}") %>
     </button>
     <div class="dropdown-menu dropdown-menu-right text-right language mx-0 px-0">
 

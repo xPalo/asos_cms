@@ -1,4 +1,4 @@
-<h1 class="text-center"><%= "#{t(:edit)} #{resource_name.to_s.humanize}" %></h1>
+<h1 class="text-center"><%= "#{t('edit')} #{resource_name.to_s.humanize}" %></h1>
 
 <div class="form-signin my-4 mx-auto w-75">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -6,12 +6,12 @@
 
         <div class="d-flex">
           <div class="form-group mb-3 me-2 w-50">
-            <%= f.label t(:'devise.first_name') %>
+            <%= f.label :first_name %>
             <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class:"form-control"%>
               </div>
 
               <div class="form-group mb-3 ms-2 w-50">
-                <%= f.label t(:'devise.last_name') %>
+                <%= f.label :last_name %>
                 <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class:"form-control" %>
                   </div>
                   </div>
@@ -26,26 +26,26 @@
                           <% end %>
 
                           <div class="form-group mb-3">
-                            <%= f.label t(:'devise.password') %> <i>(<%= t(:'devise.password_leave_blank') %>)</i><br />
+                            <%= f.label t('devise.password') %> <i>(<%= t('devise.password_leave_blank') %>)</i><br />
                             <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
                               <% if @minimum_password_length %>
                                 <br />
-                                <em><%= "#{@minimum_password_length} #{t(:'devise.minimum_characters')}" %> </em>
+                                <em><%= "#{@minimum_password_length} #{t('devise.minimum_characters')}" %> </em>
                               <% end %>
                               </div>
 
                               <div class="form-group mb-3">
-                                <%= f.label t(:'devise.password_confirmation') %><br />
+                                <%= f.label t('devise.password_confirmation') %><br />
                                 <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
                                   </div>
 
                                   <div class="form-group mb-3">
-                                    <%= f.label t(:'devise.current_password') %> <i>(<%= t(:'devise.current_password_confirmation') %>)</i><br />
+                                    <%= f.label t('devise.current_password') %> <i>(<%= t('devise.current_password_confirmation') %>)</i><br />
                                     <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control" %>
                                       </div>
 
                                       <div class="actions">
-                                        <%= f.submit t(:'devise.update_btn'), class:"btn btn-lg btn-light my-4" %>
+                                        <%= f.submit t('devise.update_btn'), class:"btn btn-lg btn-light my-4" %>
                                           </div>
                                         <% end %>
 

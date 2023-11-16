@@ -1,20 +1,22 @@
-<h1 class="text-center"> <%= t(:"post.#{action}") %> </h1>
+<h1 class="text-center"> <%= t("post.#{action}") %> </h1>
+
+<%= render 'devise/shared/error_messages', resource: @post %>
 
 <div class="form-signin my-4 mx-auto w-75">
-  <%= form_with(model: post) do |form| %>
+  <%= form_for(@post) do |form| %>
 
     <div>
-      <%= form.label t(:'post.title') %>
+      <%= form.label :title %>
       <%= form.text_field :title, class:"form-control"%>
     </div>
 
     <div>
-      <%= form.label t(:'post.content') %>
+      <%= form.label :content %>
       <%= form.text_area(:content, class:"form-control") %>
     </div>
 
     <div>
-      <%= form.label t(:'post.is_public') %>
+      <%= form.label :is_public %>
       <%= form.check_box :is_public, class:"form-check-input" %>
     </div>
 
@@ -23,7 +25,7 @@
     <hr>
 
     <div class="actions">
-      <%= form.submit t(:"button_#{action}"), class:"btn btn-lg btn-light my-auto" %>
+      <%= form.submit t("button_#{action}"), class:"btn btn-lg btn-light my-auto" %>
     </div>
   <% end %>
 </div>

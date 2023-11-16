@@ -7,7 +7,7 @@
     <%= link_to t(:back), users_path, class:"btn btn-outline-light" %>
 
     <% if user == current_user %>
-      <%= link_to t(:'header.edit_profile'), edit_user_registration_path, class:"btn btn-outline-warning" %>
+      <%= link_to t('header.edit_profile'), edit_user_registration_path, class:"btn btn-outline-warning" %>
     <% end %>
 
     <%= render partial: "users/user_posts"  %>

@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  #  before_action :authenticate_user!, only: [:explore]
+
   def index
   end
 
@@ -31,7 +33,7 @@ class HomeController < ApplicationController
         @posts = @posts.sort_by { |b| b.votes }
 
       else
-        flash[:alert] = t(:'order.invalid_value')
+        flash[:alert] = t('order.invalid_value')
       end
     end
 
@@ -41,7 +43,7 @@ class HomeController < ApplicationController
       @posts = @posts.page(params[:posts_page])
     end
 
-    @users = User.where.not(id: current_user.id).page(params[:users_page])
+    @users = User.where.not(id: current_user&.id).page(params[:users_page])
   end
 
   def change_locale

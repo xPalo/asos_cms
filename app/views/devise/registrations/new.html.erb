@@ -1,4 +1,4 @@
-<h1 class="text-center"> <%= t(:'devise.signup') %> </h1>
+<h1 class="text-center"> <%= t('devise.signup') %> </h1>
 
 <div class="form-signin my-4 mx-auto w-75">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -6,13 +6,13 @@
 
   <div class="d-flex">
     <div class="form-group mb-3 me-2 w-50">
-      <%= f.label t(:'devise.first_name') %>
+      <%= f.label :first_name %>
       <%= f.text_field :first_name, autofocus: true, autocomplete: "given-name", class:"form-control"%>
     </div>
 
     <div class="form-group mb-3 ms-2 w-50">
-      <%= f.label t(:'devise.last_name') %>
-      <%= f.text_field(:last_name, autofocus: true, autocomplete: "family-name", class:"form-control") %>
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name, autofocus: true, autocomplete: "family-name", class:"form-control" %>
     </div>
   </div>
 
@@ -24,25 +24,25 @@
   <hr>
 
   <div class="form-group mb-3">
-    <%= f.label t(:'devise.password') %>
+    <%= f.label :password %>
     <% if @minimum_password_length %>
-      <em>(<%= "#{@minimum_password_length} #{t(:'devise.minimum_characters')}" %>)</em>
+      <em>(<%= "#{@minimum_password_length} #{t('devise.minimum_characters')}" %>)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
   </div>
 
   <div class="form-group mb-3">
-    <%= f.label t(:'devise.password_confirmation') %><br />
+    <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
   </div>
 
   <div class="my-3">
-    <%= t(:'devise.already_have_account') %>
+    <%= t('devise.already_have_account') %>
     <%= render "devise/shared/links" %>
   </div>
 
   <div class="actions">
-    <%= f.submit t(:'devise.signup_btn'), class:"btn btn-lg btn-light my-auto" %>
+    <%= f.submit t('devise.signup_btn'), class:"btn btn-lg btn-light my-auto" %>
   </div>
     <% end %>
 </div>

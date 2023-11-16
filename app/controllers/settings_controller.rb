@@ -8,7 +8,7 @@ class SettingsController < ApplicationController
   def update
     respond_to do |format|
       if @setting.update(setting_params)
-        format.html { redirect_to user_path(@setting.user), notice: t(:'setting.updated') }
+        format.html { redirect_to user_path(@setting.user), notice: t('setting.updated') }
         format.json { render :show, status: :ok, location: @setting.user }
       else
         format.html { render :edit, status: :unprocessable_entity }

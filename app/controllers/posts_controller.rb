@@ -22,10 +22,14 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
 
-    if @post.save
-      redirect_to post_path(@post), notice: t(:'post.created')
-    else
-      redirect_to new_post_path(@post), alert: @post.errors.messages, status: :unprocessable_entity
+    respond_to do |format|
+      if @post.save
+        format.html { redirect_to post_path(@post), notice: t('post.created') }
+        format.json { render :show, status: :ok, location: @post }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -35,7 +39,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to post_path(@post), notice: t(:'post.updated') }
+        format.html { redirect_to post_path(@post), notice: t('post.updated') }
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -48,7 +52,7 @@ class PostsController < ApplicationController
     @post.destroy
 
     respond_to do |format|
-      format.html { redirect_to posts_path, notice: t(:'post.deleted') }
+      format.html { redirect_to posts_path, notice: t('post.deleted') }
       format.json { head :no_content }
     end
   end

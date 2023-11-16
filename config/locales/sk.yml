@@ -19,7 +19,7 @@ sk:
     current_password: "Aktuálne heslo"
     dont_have_account_yet: "Ešte nemáte účet?"
     already_have_account: "Už máte účet?"
-    forgot_password: "Zabudnuté heslo"
+    forgot_password: "Zabudnuté heslo?"
     first_name: "Krstné meno"
     last_name: "Priezvisko"
     password_leave_blank: "Nechajte prázdne ak nechcete zmeniť"
@@ -28,6 +28,8 @@ sk:
     didnt_receive_confirmation: "Nedostali ste inštrukcie k potvrdeniu?"
     didnt_receive_unlock: "Nedostali ste inštrukcie k odomknutiu?"
     minimum_characters: "znakov minimum"
+    here_by_accident: 'Ste tu nechtiac?'
+    reset_password: 'Obnoviť heslo'
 
   description: "Jednoduchý redakčný systém pre každého! Zdieľajte svoje myšlienky, komentáre a vymieňajte si správy."
 
@@ -44,6 +46,7 @@ sk:
     log_in: "Prihlásiť sa"
     sign_up: "Registrovať sa"
     settings: "Nastavenia"
+    explore: "Objavovať"
 
   edit: "Upraviť"
   back: "Späť"
@@ -112,5 +115,74 @@ sk:
     downvotes: "Hlasy proti"
     upvotes: "Hlasy za"
     is_public: "Verejný?"
+
+  activerecord:
+    models:
+      user:
+        one: 'Používateľ'
+        other: 'Používatelia'
+      post:
+        one: 'Príspevok'
+        other: 'Príspevky'
+
+    attributes:
+      user:
+        first_name: 'Krstné meno'
+        last_name: 'Priezvisko'
+        email: 'Email'
+        password: 'Heslo'
+        password_confirmation: 'Potvrdenie hesla'
+      post:
+        title: 'Nadpis'
+        content: 'Obsah'
+        user: 'Autor'
+        user_id: 'Autor'
+        is_public: 'Verejný?'
+        downvotes: 'Hlasy proti'
+        upvotes: 'Hlasy za'
+      comment:
+        content: 'Obsah'
+        user: 'Autor'
+        user_id: 'Autor'
+        post: 'Príspevok'
+        post_id: 'Príspevok'
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: ' je povinný atribút!'
+              taken: ' už je používaný iným používateľom.'
+            password:
+              blank: ' je povinný atribút!'
+              too_short: ' je príliš krátke! (Minimálne 6 znakov)'
+            password_confirmation:
+              confirmation: ' sa nezhoduje s heslom'
+            first_name:
+              blank: ' je povinný atribút!'
+            last_name:
+              blank: ' je povinný atribút!'
+        post:
+          attributes:
+            title:
+              blank: ' je povinný atribút!'
+            content:
+              blank: ' je povinný atribút!'
+            user_id:
+              blank: ' je povinný atribút!'
+            user:
+              blank: ' je povinný atribút!'
+        comment:
+          attributes:
+            content:
+              blank: ' je povinný atribút!'
+            user_id:
+              blank: ' je povinný atribút!'
+            user:
+              blank: ' je povinný atribút!'
+            psot_id:
+              blank: ' je povinný atribút!'
+            post:
+              blank: ' je povinný atribút!'
 
   not_authorized: "Nemáte oprávnenie na manipuláciu"

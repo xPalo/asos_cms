@@ -15,6 +15,6 @@
       <%= form.select :default_locale, options_for_select(Setting.default_locales.map {|k, v| [I18n.t("#{k}"), v]}, setting.default_locale), class:"form-control" %>
     </div>
 
-    <%= form.submit t(:'devise.update_btn'), class:"btn btn-lg btn-primary my-auto" %>
+    <%= form.submit t('devise.update_btn'), class:"btn btn-lg btn-primary my-auto" %>
   <% end %>
 </div>
