@@ -5,28 +5,9 @@
   <%= render "shared/search_form" %>
 
   <% if @posts.length > 0 %>
-    <table class="table text-light table-active">
-      <thead>
-      <tr>
-        <th scope="col"><%= t('post.title') %></th>
-        <th scope="col"><%= t('post.content') %></th>
-        <th scope="col"><%= t('post.comments_count') %></th>
-        <th scope="col"><%= t('post.votes') %></th>
-        <th scope="col"><%= t('post.user') %></th>
-      </tr>
-      </thead>
-      <tbody>
-      <% @posts.each do |post| %>
-        <tr class="text-light">
-            <td><%= link_to "#{post.title}", post, class:"text-light text-decoration-none" %></td>
-            <td><%= link_to "#{post.content}", post, class:"text-light text-decoration-none"  %></td>
-            <td><%= link_to "#{post.comments_count}", post, class:"text-light text-decoration-none"  %></td>
-            <td><%= link_to "#{post.votes}", post, class:"text-light text-decoration-none"  %></td>
-            <td><%= link_to "#{post.user.full_name}", post.user, class:"text-light text-decoration-none"  %></td>
-        </tr>
-      <% end %>
-      </tbody>
-    </table>
+    <% @posts.each do |post| %>
+      <%= render 'shared/post', post: post %>
+    <% end %>
   <% end %>
 
   <%= page_entries_info @posts %>

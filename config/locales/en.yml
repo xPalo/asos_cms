@@ -48,6 +48,7 @@ en:
     sign_up: "Sign up"
     settings: "Settings"
     explore: "Explore"
+    feed: "Feed"
 
   edit: "Edit"
   back: "Back"
@@ -142,6 +143,9 @@ en:
         downvotes: 'Downvotes'
         upvotes: 'Upvotes'
       comment:
+        add: 'Comment'
+        added: 'Comment added successfully!'
+        updated: 'Comment updated successfully!'
         content: 'Content'
         user: 'Author'
         user_id: 'Author'

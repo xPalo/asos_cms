@@ -1,9 +1,7 @@
-<h1 class="text-center"> <%= t("comment.#{action}") %> </h1>
-
 <%= render 'devise/shared/error_messages', resource: @comment %>
 
 <div class="form-signin my-4 mx-auto w-75">
-  <%= form_for(@comment) do |form| %>
+  <%= form_for(@comment, url: create_comment_post_path(@post)) do |form| %>
     <div>
       <%= form.label :content %>
       <%= form.text_area :content, class:"form-control" %>

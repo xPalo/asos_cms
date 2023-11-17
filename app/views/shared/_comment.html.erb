@@ -1,0 +1,22 @@
+<div class="card mb-2">
+  <div class="card-body">
+    <p class="d-flex justify-content-start text-dark fw-bold"><%= comment.content %></p>
+
+    <div class="d-flex justify-content-between">
+      <div class="d-flex flex-row align-items-center">
+        <p class="small text-muted mb-0"><%= comment.created_at.strftime("%d. %m. %Y - %H:%M") %></p>
+      </div>
+
+      <div class="d-flex flex-row align-items-center">
+        <% if comment.user_id == current_user&.id %>
+          <%= link_to t(:edit), edit_comment_path(comment), class:"text-muted text-decoration-none my-auto" %>
+          <%= button_to t(:delete), comment_path(comment), data: { confirm: I18n.t(:delete_confirmatiom) }, method: :delete, class:"text-danger btn btn-link text-decoration-none" %>
+        <% end %>
+      </div>
+
+      <div class="d-flex flex-row align-items-center">
+        <p class="small mb-0 ms-2"><%= link_to comment.user.full_name, comment.user, class:"text-muted tex-decoration-none" %> %>></p>
+      </div>
+    </div>
+  </div>
+</div>

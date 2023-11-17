@@ -7,12 +7,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user_posts = Post.where(user_id: current_user.id)
+    @user_posts = Post.where(user_id: @user.id)
   end
 
   private
 
   def set_user
-    @user = User.where(id: params[:id])
+    @user = User.find(params[:id])
   end
 end

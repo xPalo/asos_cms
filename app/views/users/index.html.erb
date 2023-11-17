@@ -1,25 +1,9 @@
 <h1 class="text-center my-4"><%= t('users') %></h1>
 
 <div id="users" class="text-center mx-auto w-100">
-  <table class="table table-hover table-active text-light">
-        <thead>
-            <tr>
-              <th scope="col"><%= t(:name) %></th>
-              <th scope="col">Email</th>
-              <th scope="col"><%= t(:action) %></th>
-            </tr>
-        </thead>
-        <tbody>
-          <% @users.each do |user| %>
-              <tr class="text-light">
-                <td><%= user.full_name %></td>
-                <td><%= user.email %></td>
-                <td><%= link_to t(:show), user, class:"text-info" %></td>
-              </tr>
-          <% end %>
-        </tbody>
-  </table>
+    <% @users.each do |user| %>
+      <%= render "users/user_card", user: user %>
+    <% end %>
     <%= page_entries_info @users %>
     <%= paginate @users, theme: 'bootstrap-5', pagination_class: "my-3 pagination-sm flex-wrap justify-content-center" %>
-
 </div>

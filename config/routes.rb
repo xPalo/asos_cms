@@ -3,8 +3,13 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, except: [:edit, :update, :destroy]
   resources :settings, only: [:edit, :update]
-  resources :posts
-  resources :comments, only: [:new, :create, :edit, :update, :destroy]
+  resources :posts do
+    member do
+      get :new_comment
+      post :create_comment
+    end
+  end
+  resources :comments, only: [:edit, :update, :destroy]
   match "lang/:locale", to: "home#change_locale", as: :change_locale, via: [:get]
   get "/explore", to: "home#explore"
 end

@@ -1,0 +1,27 @@
+<div class="card text-dark text-center my-2">
+  <% if post.user == current_user %>
+    <div class="card-header">
+      <div class="d-flex justify-content-end">
+        <%= link_to t(:edit), edit_post_path(post), class:"text-muted text-decoration-none my-auto" %>
+        <%= button_to t(:delete), post_path(post), data: { confirm: I18n.t(:delete_confirmatiom) }, method: :delete, class:"text-danger btn btn-link text-decoration-none" %>
+      </div>
+    </div>
+    <% end %>
+  <div class="card-body">
+    <h5 class="card-title"><%= link_to post.title, post, class:"text-dark text-decoration-none h1 fw-bold" %></h5>
+    <p class="card-text"><%= post.content %></p>
+  </div>
+  <div class="card-footer text-muted text-light">
+    <div class="d-flex justify-content-between">
+      <%= post.created_at.strftime("%d. %m. %Y - %H:%M") %>
+
+      <div>
+        <%= link_to('▲', new_comment_post_path(post), class:"text-decoration-none text-muted") unless current_user&.id == post.user_id %>
+        <%= post.votes %>
+        <%= link_to('▼', new_comment_post_path(post), class:"text-decoration-none text-muted") unless current_user&.id == post.user_id %>
+      </div>
+
+      <%= link_to t('activerecord.attributes.comment.add') + " (#{post.comments_count})", new_comment_post_path(post), class:"text-decoration-none text-muted" %>
+    </div>
+  </div>
+</div>

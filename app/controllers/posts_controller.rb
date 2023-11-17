@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :new_comment, :create_comment]
   before_action :authenticate_user!
 
   def index
@@ -20,7 +20,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = Post.new(post_params.merge(user_id: current_user.id))
 
     respond_to do |format|
       if @post.save
@@ -57,6 +57,24 @@ class PostsController < ApplicationController
     end
   end
 
+  def new_comment
+    @comment = Comment.new
+  end
+
+  def create_comment
+    @comment = Comment.new(comment_params.merge(user_id: current_user.id, post_id: @post.id))
+
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_to post_path(@post), notice: t('activerecord.attributes.comment.added') }
+        format.json { render :show, status: :created, location: @post }
+      else
+        format.html { render :new_comment, status: :unprocessable_entity }
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
 
   def set_post
@@ -64,6 +82,10 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content, :user_id, :downvotes, :upvotes, :is_public)
+    params.require(:post).permit(:title, :content, :is_public)
+  end
+
+  def comment_params
+    params.require(:comment).permit(:content)
   end
 end
