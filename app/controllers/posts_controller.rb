@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy, :new_comment, :create_comment]
   before_action :authenticate_user!
+  before_action :can_manipulate?, only: [:edit, :update, :destroy, :create, :new]
 
   def index
     @posts = Post.is_public.includes(:user, :comments).search(params[:search])
@@ -87,5 +88,14 @@ class PostsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:content)
+  end
+
+  def can_manipulate?
+    return if @post.user_id == current_user&.id
+
+    redirect_back(
+      fallback_location: posts_path,
+      flash: { alert: t('not_authorized') }
+    )
   end
 end

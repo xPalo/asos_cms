@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :can_manipulate?, only: [:edit, :update, :destroy]
 
   def edit
   end
@@ -35,5 +36,14 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:content)
+  end
+
+  def can_manipulate?
+    return if @comment.user_id == current_user&.id
+
+    redirect_back(
+      fallback_location: posts_path,
+      flash: { alert: t('not_authorized') }
+    )
   end
 end

@@ -1,6 +1,7 @@
 class SettingsController < ApplicationController
   before_action :set_setting, only: [:new, :create, :edit, :update]
   before_action :authenticate_user!
+  before_action :can_manipulate?, only: [:edit, :update]
 
   def edit
   end
@@ -25,5 +26,14 @@ class SettingsController < ApplicationController
 
   def setting_params
     params.require(:setting).permit(:has_darkmode, :default_locale)
+  end
+
+  def can_manipulate?
+    return if @setting.user_id == current_user&.id
+
+    redirect_back(
+      fallback_location: posts_path,
+      flash: { alert: t('not_authorized') }
+    )
   end
 end
