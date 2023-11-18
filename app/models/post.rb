@@ -1,11 +1,10 @@
 class Post < ApplicationRecord
   belongs_to :user, class_name: 'User', foreign_key: 'user_id'
-  has_many :comments, class_name: 'Comment', foreign_key: 'post_id'
+  has_many :comments, class_name: 'Comment', foreign_key: 'post_id', dependent: :destroy
+  has_many :votes, class_name: 'Vote', foreign_key: 'post_id', dependent: :destroy
 
   validates :title, presence: true
   validates :content, presence: true
-  validates :downvotes, presence: true
-  validates :upvotes, presence: true
 
   scope :is_public, -> { where(is_public: true) }
 
@@ -13,7 +12,15 @@ class Post < ApplicationRecord
     comments.count
   end
 
-  def votes
+  def upvotes
+    self.votes.where(vote_type: 'upvote').count
+  end
+
+  def downvotes
+    self.votes.where(vote_type: 'downvote').count
+  end
+
+  def votes_count
     upvotes - downvotes
   end
 

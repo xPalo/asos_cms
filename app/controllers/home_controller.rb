@@ -3,13 +3,13 @@ class HomeController < ApplicationController
   end
 
   def explore
-    if (params[:search] && (params[:search].length > 0)) || (params[:order] && (params[:order].length > 0))
+    if params[:search_posts].present? || params[:order_posts].present? || params[:search_users] || params[:order_users]
       @can_reset = true
     end
 
-    @posts = Post.includes(:user).search(params[:search])
-    if params[:order] && (params[:order].length > 0)
-      case params[:order]
+    @posts = Post.includes(:user).search(params[:search_posts])
+    if params[:order_posts].present?
+      case params[:order_posts]
       when "title_asc"
         @posts = @posts.order("title ASC")
       when "title_desc"
@@ -26,9 +26,9 @@ class HomeController < ApplicationController
         @posts = @posts.sort_by { |b| b.comments_count }
 
       when "comments_count_asc"
-        @posts = @posts.sort_by { |b| -b.votes }
+        @posts = @posts.sort_by { |b| -b.votes_count }
       when "comments_count_desc"
-        @posts = @posts.sort_by { |b| b.votes }
+        @posts = @posts.sort_by { |b| b.votes_count }
 
       else
         flash[:alert] = t('order.invalid_value')
@@ -41,7 +41,29 @@ class HomeController < ApplicationController
       @posts = @posts.page(params[:posts_page])
     end
 
-    @users = User.where.not(id: current_user&.id).page(params[:users_page])
+    @users = User.search(params[:search_users], current_user)
+    if params[:order_users].present?
+      case params[:order_users]
+      when "first_name_asc"
+        @users = @users.order("first_name ASC")
+      when "first_name_desc"
+        @users = @users.order("first_name DESC")
+
+      when "last_name_asc"
+        @users = @users.order("last_name ASC")
+      when "last_name_desc"
+        @users = @users.order("last_name DESC")
+
+      else
+        flash[:alert] = t('order.invalid_value')
+      end
+    end
+
+    if @users.class == Array
+      @users = Kaminari.paginate_array(@users).page(params[:users_page])
+    else
+      @users = @users.page(params[:users_page])
+    end
   end
 
   def change_locale

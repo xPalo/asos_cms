@@ -60,6 +60,7 @@ sk:
   submit: "Odoslať"
   button_new: "Vytvoriť"
   button_edit: "Aktualizovať"
+  reset_search: 'Resetovať vyhľadávanie'
 
   views:
     pagination:
@@ -96,6 +97,10 @@ sk:
     invalid_value: "Neplatný parameter na zoradenie"
     submit: "Zadať"
     search: "Vyhľadávanie"
+    first_name_asc: "Krstné meno ▲"
+    first_name_desc: "Krstné meno ▼"
+    last_name_asc: "Priezvisko ▲"
+    last_name_desc: "Priezvisko ▼"
 
   setting:
     has_darkmode: "Tmavý mód"
@@ -146,6 +151,13 @@ sk:
         added: 'Komentár bol úspešne pridaný!'
         updated: 'Komentár bol úspešne upravený!'
         content: 'Obsah'
+        user: 'Autor'
+        user_id: 'Autor'
+        post: 'Príspevok'
+        post_id: 'Príspevok'
+      vote:
+        added: 'Hlas bol pridaný'
+        vote_type: 'Typ'
         user: 'Autor'
         user_id: 'Autor'
         post: 'Príspevok'

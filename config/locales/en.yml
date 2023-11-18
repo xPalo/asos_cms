@@ -61,6 +61,7 @@ en:
   submit: "Submit"
   button_new: "Create"
   button_edit: "Update"
+  reset_search: 'Reset search'
 
   views:
     pagination:
@@ -97,6 +98,10 @@ en:
     invalid_value: "Invalid sorting parameter"
     submit: "Submit"
     search: "Search"
+    first_name_asc: "First name ▲"
+    first_name_desc: "First name ▼"
+    last_name_asc: "Last name ▲"
+    last_name_desc: "Last name ▼"
 
   setting:
     has_darkmode: "Darkmode"
@@ -147,6 +152,13 @@ en:
         added: 'Comment added successfully!'
         updated: 'Comment updated successfully!'
         content: 'Content'
+        user: 'Author'
+        user_id: 'Author'
+        post: 'Post'
+        post_id: 'Post'
+      vote:
+        added: 'Vote added'
+        vote_type: 'Type'
         user: 'Author'
         user_id: 'Author'
         post: 'Post'

@@ -1,24 +1,29 @@
 <div class="card text-dark text-center my-2">
   <% if post.user == current_user %>
-    <div class="card-header">
+    <div class="card-header p-0">
       <div class="d-flex justify-content-end">
         <%= link_to t(:edit), edit_post_path(post), class:"text-muted text-decoration-none my-auto" %>
         <%= button_to t(:delete), post_path(post), data: { confirm: I18n.t(:delete_confirmatiom) }, method: :delete, class:"text-danger btn btn-link text-decoration-none" %>
       </div>
     </div>
     <% end %>
-  <div class="card-body">
+  <div class="card-body pt-2 pb-1 px-3">
     <h5 class="card-title"><%= link_to post.title, post, class:"text-dark text-decoration-none h1 fw-bold" %></h5>
-    <p class="card-text"><%= post.content %></p>
+    <p class="card-text mb-0"><%= post.content %></p>
+        <div class="d-flex justify-content-end">
+          <%= link_to(post.user.full_name, post.user, class:"text-muted text-decoration-none") unless current_user&.id == post.user_id %>
+        </div>
   </div>
   <div class="card-footer text-muted text-light">
     <div class="d-flex justify-content-between">
       <%= post.created_at.strftime("%d. %m. %Y - %H:%M") %>
 
-      <div>
-        <%= link_to('▲', new_comment_post_path(post), class:"text-decoration-none text-muted") unless current_user&.id == post.user_id %>
-        <%= post.votes %>
-        <%= link_to('▼', new_comment_post_path(post), class:"text-decoration-none text-muted") unless current_user&.id == post.user_id %>
+      <div class="d-flex my-auto">
+        <%= button_to('▲', create_vote_post_path(post, vote: { vote_type: 'upvote' }), method: :post, class:"btn btn-link text-decoration-none text-muted") unless current_user&.id == post.user_id %>
+        <p class="my-auto">
+          <%= post.votes_count %>
+        </p>
+        <%= button_to('▼', create_vote_post_path(post, vote: { vote_type: 'downvote' }), method: :post, class:"btn btn-link text-decoration-none text-muted") unless current_user&.id == post.user_id %>
       </div>
 
       <%= link_to t('activerecord.attributes.comment.add') + " (#{post.comments_count})", new_comment_post_path(post), class:"text-decoration-none text-muted" %>

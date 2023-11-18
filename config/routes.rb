@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     member do
       get :new_comment
       post :create_comment
+      post :create_vote
     end
   end
   resources :comments, only: [:edit, :update, :destroy]

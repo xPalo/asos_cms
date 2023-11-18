@@ -1,6 +1,9 @@
 <h1 class="text-center my-4"><%= t('users') %></h1>
 
 <div id="users" class="text-center mx-auto w-100">
+
+    <%= render "shared/users_search_form", action: 'users' %>
+
     <% @users.each do |user| %>
       <%= render "users/user_card", user: user %>
     <% end %>

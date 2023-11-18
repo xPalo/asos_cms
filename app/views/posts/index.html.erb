@@ -2,7 +2,7 @@
 
 <div id="posts" class="text-center mx-auto w-100">
 
-  <%= render "shared/search_form" %>
+  <%= render "shared/posts_search_form", action: 'posts' %>
 
   <% if @posts.length > 0 %>
     <% @posts.each do |post| %>

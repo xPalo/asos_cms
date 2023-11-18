@@ -4,7 +4,7 @@
     <%= render "users/user_card", user: user  %>
 
     <p class="card-text">
-    <%= link_to t(:back), users_path, class:"btn btn-outline-light" %>
+    <%= link_to t(:back), :back, class:"btn btn-outline-light" %>
 
     <% if user == current_user %>
       <%= link_to t('header.edit_profile'), edit_user_registration_path, class:"btn btn-outline-warning" %>
