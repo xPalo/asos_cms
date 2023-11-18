@@ -10,6 +10,9 @@
       <%= link_to t('header.edit_profile'), edit_user_registration_path, class:"btn btn-outline-warning" %>
     <% end %>
 
+    <% if user != current_user %>
+      <%= link_to "Send Message", user_messages_path(user.id), class:"btn btn-outline-warning" %>
+    <% end %>
     <%= render "users/user_posts"  %>
     </p>
   </div>
