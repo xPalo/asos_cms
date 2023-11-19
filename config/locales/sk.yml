@@ -101,6 +101,8 @@ sk:
     first_name_desc: "Krstné meno ▼"
     last_name_asc: "Priezvisko ▲"
     last_name_desc: "Priezvisko ▼"
+    email_asc: "Email ▼"
+    email_desc: "Email ▼"
 
   setting:
     has_darkmode: "Tmavý mód"

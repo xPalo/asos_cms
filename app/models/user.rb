@@ -25,7 +25,7 @@ class User < ApplicationRecord
 
   def self.search(search, current_user = nil)
     if search
-      User.where.not(id: current_user&.id).where("lower(first_name || last_name) LIKE ?", "%#{search.downcase}%")
+      User.where.not(id: current_user&.id).where("lower(first_name || last_name || email) LIKE ?", "%#{search.downcase}%")
     else
       User.where.not(id: current_user&.id)
     end

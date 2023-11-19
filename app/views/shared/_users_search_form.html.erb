@@ -5,7 +5,7 @@
   <div class="form-group d-flex justify-content-center my-auto mb-2">
     <select class="form-select w-50 d-flex justify-content-center" aria-label="default select form-select example" name="order_users">
       <option value="" disabled <%= 'selected' if params[:order_users].blank? %> ><%= t('order.order_by') %></option>
-      <% %w(first_name_asc first_name_desc last_name_asc last_name_desc).each do |attr| %>
+      <% %w(first_name_asc first_name_desc last_name_asc last_name_desc email_asc email_desc).each do |attr| %>
         <option value="<%= attr %>" <%= 'selected' if params[:order_users] == attr %>><%= t("order.#{attr}") %></option>
       <% end %>
     </select>

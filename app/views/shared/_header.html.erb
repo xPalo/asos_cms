@@ -4,7 +4,7 @@
   <%= link_to t('header.explore'), explore_path, class:"nav-link fw-bold px-2 #{current_class?(explore_path, "light")}" %>
   <% if user_signed_in? %>
       <%= link_to t('header.feed'), posts_path, class:"nav-link fw-bold px-2 #{current_class?(posts_path, "light")}" %>
-      <%= link_to t('header.users'), users_path, class:"nav-link fw-bold px-2 #{current_class?(users_path, "light")}" %>
+      <%= link_to t('activerecord.models.user.other'), users_path, class:"nav-link fw-bold px-2 #{current_class?(users_path, "light")}" %>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           <%= I18n.t('header.my_profile') %>

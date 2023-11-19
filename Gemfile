@@ -28,6 +28,7 @@ end
 group :development do
   gem "web-console"
   gem "byebug"
+  gem "faker"
 end
 
 group :test do

@@ -102,6 +102,8 @@ en:
     first_name_desc: "First name ▼"
     last_name_asc: "Last name ▲"
     last_name_desc: "Last name ▼"
+    email_asc: "Email ▼"
+    email_desc: "Email ▼"
 
   setting:
     has_darkmode: "Darkmode"

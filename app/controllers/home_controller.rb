@@ -21,14 +21,14 @@ class HomeController < ApplicationController
         @posts = @posts.order("content DESC")
 
       when "votes_asc"
-        @posts = @posts.sort_by { |b| -b.comments_count }
+        @posts = @posts.sort_by { |b| -b.votes_count }
       when "votes_desc"
-        @posts = @posts.sort_by { |b| b.comments_count }
+        @posts = @posts.sort_by { |b| b.votes_count }
 
       when "comments_count_asc"
-        @posts = @posts.sort_by { |b| -b.votes_count }
+        @posts = @posts.sort_by { |b| -b.comments_count }
       when "comments_count_desc"
-        @posts = @posts.sort_by { |b| b.votes_count }
+        @posts = @posts.sort_by { |b| b.comments_count }
 
       else
         flash[:alert] = t('order.invalid_value')
@@ -53,6 +53,11 @@ class HomeController < ApplicationController
         @users = @users.order("last_name ASC")
       when "last_name_desc"
         @users = @users.order("last_name DESC")
+
+      when "email_asc"
+        @users = @users.order("email ASC")
+      when "email_desc"
+        @users = @users.order("email DESC")
 
       else
         flash[:alert] = t('order.invalid_value')

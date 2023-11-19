@@ -30,7 +30,7 @@ class Post < ApplicationRecord
     if search
       Post.is_public
           .joins(:user)
-          .where("lower(posts.title || posts.content || users.first_name || users.last_name) LIKE ?", "%#{search.downcase}%")
+          .where("lower(posts.title || posts.content || users.first_name || users.last_name || users.email) LIKE ?", "%#{search.downcase}%")
     else
       Post.is_public
     end

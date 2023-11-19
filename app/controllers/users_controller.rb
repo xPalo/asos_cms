@@ -17,6 +17,11 @@ class UsersController < ApplicationController
       when "last_name_desc"
         @users = @users.order("last_name DESC")
 
+      when "email_asc"
+        @users = @users.order("email ASC")
+      when "email_desc"
+        @users = @users.order("email DESC")
+
       else
         flash[:alert] = t('order.invalid_value')
       end
