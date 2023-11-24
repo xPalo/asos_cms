@@ -21,7 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_18_121859) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "messanges", force: :cascade do |t|
+  create_table "messages", force: :cascade do |t|
     t.integer "sender_id", null: false
     t.integer "receiver_id", null: false
     t.string "subject", null: false
@@ -32,7 +32,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_18_121859) do
     t.index ["receiver_id"], name: "index_receiver_id_on_user"
     t.index ["sender_id"], name: "index_sender_id_on_user"
   end
-  
+
   create_table "posts", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "title", null: false
@@ -78,8 +78,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_18_121859) do
 
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
-  add_foreign_key "messanges", "receivers", on_delete: :cascade
-  add_foreign_key "messanges", "senders", on_delete: :cascade
+  add_foreign_key "messages", "receivers", on_delete: :cascade
+  add_foreign_key "messages", "senders", on_delete: :cascade
   add_foreign_key "posts", "users"
   add_foreign_key "settings", "users"
   add_foreign_key "votes", "posts"
