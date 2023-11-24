@@ -1,21 +1,21 @@
 <h1 class="text-center">Create Message</h1>
 <div class="form-signin my-4 mx-auto w-75">
-  <%= form_with(model: message) do |f| %>
+  <%= form_with(model: @message) do |f| %> <!-- Change @message to message -->
 
     <div>
-      <%#= f.label t(:'message.title') %>
       <%= f.text_field :content, class: "form-control"%>
     </div>
 
-<!--    <div>-->
-      <%#= f.label t(:'post.is_public') %>
-      <%#= f.check_box :is_public, class:"form-check-input" %>
-<!--    </div>-->
-
-    <%= f.hidden_field :user_id, value: current_user.id %>
 
     <hr>
 
+    <div>
+      <%= f.hidden_field :receiver_id, value: params[:user_id] %>
+    </div>
+
+    <div>
+      <%= f.hidden_field :sender_id, value: current_user.id %>
+    </div>
     <div class="actions">
       <%= f.submit t(:"button.#{action}"), class: "btn btn-lg btn-light my-auto" %>
     </div>

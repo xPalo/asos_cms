@@ -4,15 +4,16 @@
     <%= render "users/user_card", user: user  %>
 
     <p class="card-text">
-    <%= link_to t(:back), :back, class:"btn btn-outline-light" %>
+    <%= link_to t(:back), :back, class: "btn btn-outline-light" %>
 
     <% if user == current_user %>
-      <%= link_to t('header.edit_profile'), edit_user_registration_path, class:"btn btn-outline-warning" %>
+      <%= link_to t('header.edit_profile'), edit_user_registration_path, class: "btn btn-outline-warning" %>
     <% end %>
 
     <% if user != current_user %>
-      <%= link_to "Send Message", user_messages_path(user.id), class:"btn btn-outline-warning" %>
+      <%= link_to "Send Message", new_user_message_path(user.id), class: "btn btn-outline-warning" %>
     <% end %>
+
     <%= render "users/user_posts"  %>
     </p>
   </div>
