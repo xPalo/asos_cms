@@ -1,10 +1,10 @@
 <h1>Message Details</h1>
 
-<!--<div>-->
-<!--  <p><strong>From:</strong> <%#= @message.sender.username %></p>-->
-<!--  <p><strong>To:</strong> <%#= @message.receiver.username %></p>-->
-<!--  <p><strong>Content:</strong></p>-->
-<!--  <p><%#= @message.content %></p>-->
-<!--</div>-->
+<div>
+  <p><strong>From:</strong> <%= @message.sender.username %></p>
+  <p><strong>To:</strong> <%= @message.receiver.username %></p>
+  <p><strong>Content:</strong></p>
+  <p><%= @message.content %></p>
+</div>
 
-<%#= link_to 'Back to Messages', messages_path %>
+<%= link_to 'Back to Messages', messages_path %>

@@ -1,4 +1,32 @@
-<h2>Inbox</h2>
-<%# @messages.each do |message| %>
-  <%#= message.content %>
+<!--<h2>My Messages</h2>-->
+<%# @receiver.each do |receiver| %>
+<!--  <div class="card bg-dark p-4 my-2">-->
+<!--    <div class="d-flex my-auto">-->
+<!--      <div class="text-start">-->
+        <%#= receiver.first_name %>
+        <%# @messages.each do |message| %>
+          <%# if message.receiver_id == receiver.id %>
+            <%#= message.content %>
+            <%#= message.created_at %>
+          <%# end %>
+        <%# end %>
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
 <%# end %>
+<h2>My Messages</h2>
+<% @receiver.each do |receiver| %>
+  <div class="card bg-dark p-4 my-2">
+    <h3><strong><%= receiver.first_name %></strong></h3>
+    <div class="chat-container">
+      <% @messages.each do |message| %>
+        <% if message.receiver_id == receiver.id %>
+          <div class="message <%= message.sender_id == current_user.id ? 'sent' : 'received' %>">
+            <p><%= message.content %></p>
+            <span><%= message.created_at.strftime('%H:%M') %></span>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

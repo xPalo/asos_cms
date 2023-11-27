@@ -78,8 +78,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_18_121859) do
 
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
-  add_foreign_key "messages", "receivers", on_delete: :cascade
-  add_foreign_key "messages", "senders", on_delete: :cascade
+  add_foreign_key "messages", "users", column: "receiver_id", on_delete: :cascade
+  add_foreign_key "messages", "users", column: "sender_id", on_delete: :cascade
   add_foreign_key "posts", "users"
   add_foreign_key "settings", "users"
   add_foreign_key "votes", "posts"

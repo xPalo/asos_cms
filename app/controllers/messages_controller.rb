@@ -4,21 +4,30 @@ class MessagesController < ApplicationController
   # before_action :set_receiver, only: [:new, :create]
 
   def index
-    @user = User.find(params[:user_id])
-    @messages = @user.messages
+    @messages = Message.where(sender_id: current_user.id)
+    @receiver = User.find(@messages.pluck(:receiver_id))
   end
 
   def new
+    @user_id = User.find(params[:user_id])
     @message = Message.new
   end
 
   def create
-    puts "Received params: #{params.inspect}"
+    @message = Message.new(message_params.merge(sender_id: current_user.id,receiver_id: params[:user_id]))
 
-    @message = Message.new(message_params)
-    puts @message
-    puts message_params
-    @message.save!
+    respond_to do |format|
+      if @message.save
+        format.html { redirect_to user_messages_path(current_user.id), notice: t('post.created') }
+        format.json { render :show, status: :ok, location: @message }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @message.errors, status: :unprocessable_entity }
+      end
+    end
+
+
+
   end
 
   def destroy
@@ -34,7 +43,11 @@ class MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit(:content, :receiver_id, :sender_id)
+    params.require(:message).permit(:content, :subject)
+  end
+
+  def receiver
+    User.find(@message.receiver_id)
   end
 
   def set_receiver
