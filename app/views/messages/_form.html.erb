@@ -9,25 +9,15 @@
       <%= form.text_field :subject, class: "form-control"%>
     </div>
 
-
-
     <div>
       <%= form.label :content %>
       <%= form.text_area :content, class: "form-control"%>
     </div>
 
-
     <hr>
-<!--    <div>-->
-      <%#= form.hidden_field :receiver_id, value: params[:user_id] %>
-<!--    </div>-->
-
-<!--    <div>-->
-      <%#= form.hidden_field :sender_id, value: current_user.id %>
-<!--    </div>-->
 
     <div class="actions">
-      <%= form.submit user_messages_path(current_user.id), class: "btn btn-lg btn-light my-auto" %>
+      <%= form.submit "Send", class: "btn btn-lg btn-light my-auto" %>
     </div>
 <% end %>
 </div>

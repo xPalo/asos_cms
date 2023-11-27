@@ -1,32 +1,17 @@
-<!--<h2>My Messages</h2>-->
-<%# @receiver.each do |receiver| %>
-<!--  <div class="card bg-dark p-4 my-2">-->
-<!--    <div class="d-flex my-auto">-->
-<!--      <div class="text-start">-->
-        <%#= receiver.first_name %>
-        <%# @messages.each do |message| %>
-          <%# if message.receiver_id == receiver.id %>
-            <%#= message.content %>
-            <%#= message.created_at %>
-          <%# end %>
-        <%# end %>
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<%# end %>
-<h2>My Messages</h2>
-<% @receiver.each do |receiver| %>
-  <div class="card bg-dark p-4 my-2">
-    <h3><strong><%= receiver.first_name %></strong></h3>
-    <div class="chat-container">
-      <% @messages.each do |message| %>
-        <% if message.receiver_id == receiver.id %>
-          <div class="message <%= message.sender_id == current_user.id ? 'sent' : 'received' %>">
-            <p><%= message.content %></p>
-            <span><%= message.created_at.strftime('%H:%M') %></span>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
+<h2>Chat with <%= @friend.first_name %> <%= @friend.last_name %></h2>
+<div class="card bg-dark p-4 my-2">
+  <div class="chat-container">
+    <% @messages.each do |message| %>
+      <div class="message <%= message.sender_id == current_user.id ? 'sent' : 'received' %>">
+        <% sender = message.sender_id == @me.id ? @me : @friend %>
+        <p><strong><%= sender.first_name %></strong>: <%= message.content %></p>
+        <span><%= Time.at(message.created_at).strftime('%H:%M') %></span>
+      </div>
+    <% end %>
   </div>
-<% end %>
+  <div class="p-5 mb-4 text-light rounded-3 text-end">
+  <%= link_to "Answer",  new_user_message_path(@friend.id), class: "btn btn-outline-secondary m-2 p-2" %>
+
+  <%= link_to "Back", @friend, class: "btn btn-outline-primary p-2" %>
+  </div>
+</div>

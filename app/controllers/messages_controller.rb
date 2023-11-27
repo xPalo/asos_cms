@@ -4,8 +4,15 @@ class MessagesController < ApplicationController
   # before_action :set_receiver, only: [:new, :create]
 
   def index
-    @messages = Message.where(sender_id: current_user.id)
-    @receiver = User.find(@messages.pluck(:receiver_id))
+    # Retrieve messages for the current user or between specific users
+    @messages = Message.where(sender_id: [current_user.id, params[:user_id]], receiver_id: [current_user.id, params[:user_id]])
+                       .order(created_at: :asc)
+    # Ensure @messages is not nil
+    @messages ||= []
+
+    @friend = User.find(params[:user_id])
+    @me = User.find(current_user.id)
+
   end
 
   def new
@@ -35,7 +42,6 @@ class MessagesController < ApplicationController
   end
 
   def show
-    @message = current_user.messages.find(params[:id])
   end
 
 
