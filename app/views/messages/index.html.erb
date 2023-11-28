@@ -9,26 +9,59 @@
 
 <div class="tab-content" id="pills-tabContent">
   <div class="tab-pane fade show active" id="methodA" role="tabpanel" aria-labelledby="pills-home-tab">
-
-    <% if @posts.any? %>
-      <% @posts.each do |post| %>
-        <%= render 'shared/post', post: post %>
-      <% end %>
+    <% if @sender_messages.any? %>
+      <table class="table table-striped table-bordered table-hover">
+        <thead class="table-primary">
+        <tr>
+          <th scope="col"><%= t("message.subject") %></th>
+          <th scope="col"><%= t("message.content") %></th>
+          <th scope="col"><%= t("message.actions") %></th>
+        </tr>
+        </thead>
+        <tbody class="table-primary">
+        <% @sender_messages.each do |sended| %>
+          <tr>
+            <td><%= sended.subject %></td>
+            <td><%= sended.content %></td>
+            <td>
+              <div class="btn-group" role="group">
+                <%= link_to t("message.show_message"), user_message_path(current_user, sended), class: 'btn btn-primary btn-sm' %>
+                <%= link_to t("message.delete"), user_message_path(current_user, sended), class: 'btn btn-danger btn-sm', data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
     <% end %>
-
-    <%= page_entries_info @posts %>
-    <%= paginate @posts, :remote => true, :param_name => "posts_page", theme: 'bootstrap-5', pagination_class: "my-3 pagination-sm flex-wrap justify-content-center" %>
   </div>
 
   <div class="tab-pane fade" id="methodB" role="tabpanel" aria-labelledby="pills-home-tab">
 
-    <% if @users.length > 0 %>
-      <% @users.each do |user| %>
-        <%= render "users/user_card", user: user %>
-      <% end %>
+    <% if @receiver_messages.any? %>
+      <table class="table table-striped table-bordered table-hover">
+        <thead class="table-primary">
+        <tr>
+          <th scope="col"><%= t("message.subject") %></th>
+          <th scope="col"><%= t("message.content") %></th>
+          <th scope="col"><%= t("message.actions") %></th>
+        </tr>
+        </thead>
+        <tbody class="table-primary">
+        <% @receiver_messages.each do |received| %>
+          <tr>
+            <td><%= received.subject %></td>
+            <td><%= received.content %></td>
+            <td>
+              <div class="btn-group" role="group">
+                <%= link_to t("message.show_message"), user_message_path(current_user, received), class: 'btn btn-primary btn-sm' %>
+                <%= link_to t("message.delete"), user_message_path(current_user, received), class: 'btn btn-danger btn-sm', data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
     <% end %>
-
-    <%= page_entries_info @users %>
-    <%= paginate @users, :remote => true, :param_name => "users_page", theme: 'bootstrap-5', pagination_class: "my-3 pagination-sm flex-wrap justify-content-center" %>
   </div>
 </div>

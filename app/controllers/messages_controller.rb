@@ -1,9 +1,13 @@
 # frozen_string_literal: true
 
 class MessagesController < ApplicationController
-  # before_action :set_receiver, only: [:new, :create]
+  before_action :set_message, only: [:show ,:destroy]
+  before_action :set_receiver, only: [:show]
+  before_action :set_sender, only: [:show]
 
   def index
+    @sender_messages = Message.where(sender_id: current_user.id)
+    @receiver_messages = Message.where(receiver_id: current_user.id)
   end
 
   def new
@@ -25,10 +29,6 @@ class MessagesController < ApplicationController
     end
   end
 
-  def destroy
-    @message = current_user.messages.destroy(params[:id])
-  end
-
   def show
   end
 
@@ -42,6 +42,12 @@ class MessagesController < ApplicationController
     @user = User.find(params[:user_id])
   end
 
+  def destroy
+    @message.destroy
+
+    redirect_to user_messages_path, notice: t('message.deleted')
+  end
+
   private
 
   # sender_id a receiver_id nemoze byt nestaveny cez postman pretoze sa to nenachadza v permite
@@ -49,11 +55,15 @@ class MessagesController < ApplicationController
     params.require(:message).permit(:content, :subject)
   end
 
-  def receiver
-    User.find(@message.receiver_id)
+  def set_message
+    @message = Message.find(params[:id])
   end
 
   def set_receiver
-    @receiver = User.find(params[:user_id])
+    @receiver = User.find(@message.receiver_id)
+  end
+
+  def set_sender
+    @sender = User.find(@message.sender_id)
   end
 end

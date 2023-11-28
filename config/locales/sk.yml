@@ -125,6 +125,25 @@ sk:
     upvotes: "Hlasy za"
     is_public: "Verejný?"
 
+  message:
+    index: "Správy"
+    show: "Správa"
+    edit: "Edit správy"
+    new: "Nová správa"
+    delete: "Zmazať"
+    not_found: "Žiadne správy neboli nájdené"
+    updated: "Správa úspešne upravený"
+    created: "Správa úspešne vytvorený"
+    deleted: "Správa úspešne odstránený"
+    subject: "Predmet:"
+    title: "Nadpis"
+    content: "Obsah:"
+    author: "Autor"
+    sender: "Odosielateľ:"
+    receiver: "Príjemca:"
+    actions: "Akcie"
+    show_message: "Zobraziť"
+
   activerecord:
     models:
       user:

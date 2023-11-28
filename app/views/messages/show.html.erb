@@ -1,10 +1,27 @@
-<h1>Message Details</h1>
+<div class="container mt-4">
+  <h1 class="mb-4"><%= t("message.show") %></h1>
 
-<div>
-  <p><strong>From:</strong> <%= @message.sender.username %></p>
-  <p><strong>To:</strong> <%= @message.receiver.username %></p>
-  <p><strong>Content:</strong></p>
-  <p><%= @message.content %></p>
+  <% if @message %>
+    <div class="mb-3">
+      <p><strong><%= t("message.subject") %></strong> <%= @message.subject if @message.subject %></p>
+      <p><strong><%= t("message.content") %></strong> <%= @message.content if @message.content %></p>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <% if @sender %>
+          <p><strong><%= t("message.sender") %></strong> <%= @sender.first_name %> <%= @sender.last_name %></p>
+        <% end %>
+      </div>
+      <div class="col">
+        <% if @receiver %>
+          <p><strong><%= t("message.receiver") %></strong> <%= @receiver.first_name %> <%= @receiver.last_name %></p>
+        <% end %>
+      </div>
+    </div>
+
+    <%= link_to 'Back', user_messages_path(current_user), class: 'btn btn-primary mt-3' %>
+  <% else %>
+    <p><%= t("message.not_found") %></p>
+  <% end %>
 </div>
-
-<%= link_to 'Back to Messages', user_messages %>

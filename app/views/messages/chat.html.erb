@@ -8,7 +8,7 @@
         <span><%= Time.at(message.created_at).strftime('%H:%M') %></span>
         <% if message.sender_id == current_user.id %>
           <div class="p-5 mb-4 text-light rounded-3 text-end">
-            <%= link_to "Delete", @user, class: "btn btn-outline-danger p-2" %>
+            <%= link_to t("message.delete"), user_message_path(current_user, message), class: 'btn btn-danger btn-sm', data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
           </div>
         <% end %>
       </div>

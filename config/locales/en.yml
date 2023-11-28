@@ -131,12 +131,19 @@ en:
     show: "Message"
     edit: "Edit message"
     new: "New message"
-    updated: "Post updated successfully"
-    created: "Post created successfully"
-    deleted: "Post deleted successfully"
+    delete: "Delete"
+    not_found: "Message details not found"
+    updated: "Message updated successfully"
+    created: "Message created successfully"
+    deleted: "Message deleted successfully"
+    subject: "Subject:"
     title: "Title"
-    content: "Content"
+    content: "Content:"
     author: "Author"
+    sender: "Sender:"
+    receiver: "Receiver:"
+    actions: "Actions"
+    show_message: "Show"
 
   activerecord:
     models:
