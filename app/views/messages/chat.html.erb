@@ -1,0 +1,23 @@
+<h2>Chat</h2>
+<div class="card bg-dark p-4 my-2">
+  <div class="chat-container">
+    <% @messages.each do |message| %>
+      <div class="message <%= message.sender_id == current_user.id ? 'sent' : 'received' %>">
+        <% sender = message.sender_id == current_user.id ? current_user : @user %>
+        <p><strong><%= sender.first_name %></strong>: <%= message.content %></p>
+        <span><%= Time.at(message.created_at).strftime('%H:%M') %></span>
+        <% if message.sender_id == current_user.id %>
+          <div class="p-5 mb-4 text-light rounded-3 text-end">
+            <%= link_to "Delete", @user, class: "btn btn-outline-danger p-2" %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <%= render "form" %>
+
+  <div class="p-5 mb-4 text-light rounded-3 text-end">
+    <%= link_to "Back", @user, class: "btn btn-outline-primary p-2" %>
+  </div>
+</div>

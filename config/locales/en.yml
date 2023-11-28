@@ -49,6 +49,7 @@ en:
     settings: "Settings"
     explore: "Explore"
     feed: "Feed"
+    message: "Messages"
 
   edit: "Edit"
   back: "Back"
@@ -125,6 +126,18 @@ en:
     upvotes: "Upvotes"
     is_public: "Is public?"
 
+  message:
+    index: "Messages"
+    show: "Message"
+    edit: "Edit message"
+    new: "New message"
+    updated: "Post updated successfully"
+    created: "Post created successfully"
+    deleted: "Post deleted successfully"
+    title: "Title"
+    content: "Content"
+    author: "Author"
+
   activerecord:
     models:
       user:
@@ -133,6 +146,13 @@ en:
       post:
         one: 'Post'
         other: 'Posts'
+      message:
+        send:
+          one: 'Sender'
+          other: 'Sended'
+        receive:
+          one: 'Receiver'
+          other: 'Received'
 
     attributes:
       user:

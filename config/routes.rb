@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, except: [:edit, :update, :destroy] do
     resources :messages, only: [:index, :show, :destroy, :new, :create]
+    get :chat, to: 'messages#chat'
   end
   resources :settings, only: [:edit, :update]
   resources :posts do

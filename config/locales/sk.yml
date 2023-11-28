@@ -48,6 +48,7 @@ sk:
     settings: "Nastavenia"
     explore: "Objavovať"
     feed: "Feed"
+    message: "Správy"
 
   edit: "Upraviť"
   back: "Späť"
@@ -132,6 +133,13 @@ sk:
       post:
         one: 'Príspevok'
         other: 'Príspevky'
+      message:
+        send:
+          one: 'Odosielateľ'
+          other: 'Odoslané'
+        receive:
+          one: 'Prijímateľ'
+          other: 'Prijaté'
 
     attributes:
       user:

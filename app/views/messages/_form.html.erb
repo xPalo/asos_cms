@@ -1,8 +1,7 @@
-<h1 class="text-center">Create Message</h1>
 <%= render 'devise/shared/error_messages', resource: @message %>
 
 <div class="form-signin my-4 mx-auto w-75">
-  <%= form_for @message, url: user_messages_path(@user_id) do |form| %>
+  <%= form_for @message, url: user_messages_path(@user) do |form| %>
 
     <div>
       <%= form.label :subject %>
