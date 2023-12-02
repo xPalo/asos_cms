@@ -128,13 +128,13 @@ sk:
   message:
     index: "Správy"
     show: "Správa"
-    edit: "Edit správy"
+    edit: "Upraviť správu"
     new: "Nová správa"
     delete: "Zmazať"
     not_found: "Žiadne správy neboli nájdené"
-    updated: "Správa úspešne upravený"
-    created: "Správa úspešne vytvorený"
-    deleted: "Správa úspešne odstránený"
+    updated: "Správa úspešne upravená"
+    created: "Správa úspešne vytvorená"
+    deleted: "Správa úspešne odstránená"
     subject: "Predmet:"
     title: "Nadpis"
     content: "Obsah:"
@@ -143,6 +143,7 @@ sk:
     receiver: "Príjemca:"
     actions: "Akcie"
     show_message: "Zobraziť"
+    respond: "Odpísať"
 
   activerecord:
     models:
@@ -153,6 +154,10 @@ sk:
         one: 'Príspevok'
         other: 'Príspevky'
       message:
+        one: 'Správa'
+        other: 'Správy'
+        new: 'Napísať správu'
+        chat: 'Četovať'
         send:
           one: 'Odosielateľ'
           other: 'Odoslané'
@@ -191,6 +196,13 @@ sk:
         user_id: 'Autor'
         post: 'Príspevok'
         post_id: 'Príspevok'
+      message:
+        content: 'Obsah'
+        subject: 'Predmet'
+        receiver: 'Príjemca'
+        receiver_id: 'Príjemca'
+        sender: 'Odosielateľ'
+        sender_id: 'Odosielateľ'
     errors:
       models:
         user:
@@ -228,6 +240,10 @@ sk:
             psot_id:
               blank: ' je povinný atribút!'
             post:
+              blank: ' je povinný atribút!'
+        message:
+          attributes:
+            content:
               blank: ' je povinný atribút!'
 
   not_authorized: "Nemáte oprávnenie na manipuláciu"

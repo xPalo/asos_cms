@@ -38,14 +38,6 @@ class UsersController < ApplicationController
     @user_posts = Post.where(user_id: @user.id)
   end
 
-  def sender
-    @user = User.find(params[:id])
-  end
-
-  def receiver
-    @user = User.find(params[:id])
-  end
-
   private
 
   def set_user

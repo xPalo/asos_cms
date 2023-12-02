@@ -5,7 +5,6 @@
   <% if user_signed_in? %>
       <%= link_to t('header.feed'), posts_path, class: "nav-link fw-bold px-2 #{current_class?(posts_path, "light")}" %>
       <%= link_to t('activerecord.models.user.other'), users_path, class: "nav-link fw-bold px-2 #{current_class?(users_path, "light")}" %>
-      <%= link_to t('header.messages'), user_messages_path(current_user.id), class: "nav-link fw-bold px-2 #{current_class?(user_messages_path(current_user.id), "light")}"%>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           <%= I18n.t('header.my_profile') %>
@@ -14,6 +13,7 @@
           <li><%= link_to I18n.t('header.overview'), user_path(id: current_user.id), class: "nav-link text-dark fw-bold px-2" %></li>
           <li><%= link_to I18n.t('header.edit_profile'), edit_user_registration_path, class: "nav-link text-dark fw-bold px-2" %></li>
           <li><%= link_to I18n.t('header.settings'), edit_setting_path(id: current_user.setting.id), class: "nav-link text-dark fw-bold px-2" %></li>
+          <li><%= link_to I18n.t('activerecord.models.message.other'), user_messages_path(current_user), class: "nav-link text-dark fw-bold px-2" %></li>
         </ul>
       </li>
       <%= button_to I18n.t('header.log_out'), destroy_user_session_path, method: :delete, class: "btn btn-link nav-link fw-bold px-2 text-danger danger" %>

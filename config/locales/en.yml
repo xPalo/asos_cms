@@ -144,6 +144,7 @@ en:
     receiver: "Receiver:"
     actions: "Actions"
     show_message: "Show"
+    respond: "Respond"
 
   activerecord:
     models:
@@ -154,6 +155,10 @@ en:
         one: 'Post'
         other: 'Posts'
       message:
+        one: 'Message'
+        other: 'Messages'
+        new: 'Send message'
+        chat: 'Chat'
         send:
           one: 'Sender'
           other: 'Sended'
@@ -192,6 +197,13 @@ en:
         user_id: 'Author'
         post: 'Post'
         post_id: 'Post'
+      message:
+        content: 'Content'
+        subject: 'SUbject'
+        receiver: 'Receiver'
+        receiver_id: 'Receiver'
+        sender: 'Sender'
+        sender_id: 'Sender'
     errors:
       models:
         user:
@@ -229,6 +241,10 @@ en:
             psot_id:
               blank: ' is required!'
             post:
+              blank: ' is required!'
+        message:
+          attributes:
+            content:
               blank: ' is required!'
 
   not_authorized: "Nemáte oprávnenie na manipuláciu"

@@ -1,8 +1,7 @@
 <%= render 'devise/shared/error_messages', resource: @message %>
 
-<div class="form-signin my-4 mx-auto w-75">
-  <%= form_for @message, url: user_messages_path(@user) do |form| %>
-
+<div class="form-signin my-2 mx-auto w-75">
+  <%= form_for(@message, url: user_messages_path(@user)) do |form| %>
     <div>
       <%= form.label :subject %>
       <%= form.text_field :subject, class: "form-control"%>
@@ -16,7 +15,7 @@
     <hr>
 
     <div class="actions">
-      <%= form.submit "Send", class: "btn btn-lg btn-light my-auto" %>
+      <%= form.submit t('submit'), class: "btn btn-lg btn-light my-auto" %>
     </div>
-<% end %>
+    <% end %>
 </div>

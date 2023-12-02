@@ -10,17 +10,17 @@
     <div class="row">
       <div class="col">
         <% if @sender %>
-          <p><strong><%= t("message.sender") %></strong> <%= @sender.first_name %> <%= @sender.last_name %></p>
+          <p><strong><%= t("message.sender") %></strong> <%= link_to "#{@sender.full_name}", @sender, class: "text-light text-decoration-none" %></p>
         <% end %>
       </div>
       <div class="col">
         <% if @receiver %>
-          <p><strong><%= t("message.receiver") %></strong> <%= @receiver.first_name %> <%= @receiver.last_name %></p>
+          <p><strong><%= t("message.receiver") %></strong> <%= link_to "#{@receiver.full_name}", @receiver, class: "text-light text-decoration-none" %></p>
         <% end %>
       </div>
     </div>
 
-    <%= link_to 'Back', user_messages_path(current_user), class: 'btn btn-primary mt-3' %>
+    <%= link_to t('back'), :back, class: 'btn btn-primary mt-3' %>
   <% else %>
     <p><%= t("message.not_found") %></p>
   <% end %>
