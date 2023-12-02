@@ -3,7 +3,7 @@
 
     <div class="field form-group">
       <div class="checkbox-inline">
-        <%= form.check_box :has_darkmode, class:"form-check-input" %>
+        <%= form.check_box :has_darkmode, class: "form-check-input" %>
         <%= form.label :has_darkmode, I18n.t('setting.has_darkmode') %>
       </div>
     </div>
@@ -12,9 +12,9 @@
 
     <div class="form-group mb-3">
       <%= form.label I18n.t('setting.default_locale') %>
-      <%= form.select :default_locale, options_for_select(Setting.default_locales.map {|k, v| [I18n.t("#{k}"), v]}, setting.default_locale), class:"form-control" %>
+      <%= form.select :default_locale, options_for_select(Setting.default_locales.map {|k, v| [I18n.t("#{k}"), v]}, setting.default_locale), class: "form-control" %>
     </div>
 
-    <%= form.submit t('devise.update_btn'), class:"btn btn-lg btn-primary my-auto" %>
+    <%= form.submit t('devise.update_btn'), class: "btn btn-lg btn-primary my-auto" %>
   <% end %>
 </div>

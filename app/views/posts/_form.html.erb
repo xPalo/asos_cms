@@ -7,23 +7,23 @@
 
     <div>
       <%= form.label :title %>
-      <%= form.text_field :title, class:"form-control"%>
+      <%= form.text_field :title, class: "form-control"%>
     </div>
 
     <div>
       <%= form.label :content %>
-      <%= form.text_area(:content, class:"form-control") %>
+      <%= form.text_area(:content, class: "form-control") %>
     </div>
 
     <div>
       <%= form.label :is_public %>
-      <%= form.check_box :is_public, class:"form-check-input" %>
+      <%= form.check_box :is_public, class: "form-check-input" %>
     </div>
 
     <hr>
 
     <div class="actions">
-      <%= form.submit t("button_#{action}"), class:"btn btn-lg btn-light my-auto" %>
+      <%= form.submit t("button_#{action}"), class: "btn btn-lg btn-light my-auto" %>
     </div>
   <% end %>
 </div>

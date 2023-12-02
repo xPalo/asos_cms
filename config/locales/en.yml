@@ -49,6 +49,7 @@ en:
     settings: "Settings"
     explore: "Explore"
     feed: "Feed"
+    message: "Messages"
 
   edit: "Edit"
   back: "Back"
@@ -125,6 +126,26 @@ en:
     upvotes: "Upvotes"
     is_public: "Is public?"
 
+  message:
+    index: "Messages"
+    show: "Message"
+    edit: "Edit message"
+    new: "New message"
+    delete: "Delete"
+    not_found: "Message details not found"
+    updated: "Message updated successfully"
+    created: "Message created successfully"
+    deleted: "Message deleted successfully"
+    subject: "Subject:"
+    title: "Title"
+    content: "Content:"
+    author: "Author"
+    sender: "Sender:"
+    receiver: "Receiver:"
+    actions: "Actions"
+    show_message: "Show"
+    respond: "Respond"
+
   activerecord:
     models:
       user:
@@ -133,6 +154,17 @@ en:
       post:
         one: 'Post'
         other: 'Posts'
+      message:
+        one: 'Message'
+        other: 'Messages'
+        new: 'Send message'
+        chat: 'Chat'
+        send:
+          one: 'Sender'
+          other: 'Sended'
+        receive:
+          one: 'Receiver'
+          other: 'Received'
 
     attributes:
       user:
@@ -165,6 +197,13 @@ en:
         user_id: 'Author'
         post: 'Post'
         post_id: 'Post'
+      message:
+        content: 'Content'
+        subject: 'SUbject'
+        receiver: 'Receiver'
+        receiver_id: 'Receiver'
+        sender: 'Sender'
+        sender_id: 'Sender'
     errors:
       models:
         user:
@@ -202,6 +241,10 @@ en:
             psot_id:
               blank: ' is required!'
             post:
+              blank: ' is required!'
+        message:
+          attributes:
+            content:
               blank: ' is required!'
 
   not_authorized: "Nemáte oprávnenie na manipuláciu"

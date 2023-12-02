@@ -47,29 +47,4 @@
   </div>
 </div>
 
-<script type="text/javascript" charset="utf-8">
-
-    document.getElementById("methodAbtn").addEventListener("click", function(event){
-        localStorage.setItem("explore_category", "methodAbtn");
-    });
-    document.getElementById("methodBbtn").addEventListener("click", function(event){
-        localStorage.setItem("explore_category", "methodBbtn");
-    });
-
-    $(document).ready(function()
-    {
-        if (localStorage.getItem("explore_category"))
-        {
-            document.getElementById("methodAbtn").setAttribute("class", "btn btn-sm btn-outline-light mx-2");
-            document.getElementById("methodBbtn").setAttribute("class", "btn btn-sm btn-outline-light mx-2");
-            document.getElementById(localStorage.getItem("explore_category")).setAttribute("class", "active btn btn-sm btn-outline-light mx-2");
-        }
-        else
-        {
-            localStorage.setItem("explore_category", "methodAbtn")
-        }
-    });
-
-    $(`#${localStorage.getItem("explore_category")}`).click();
-
-</script>
+<%= render "shared/prezentation" %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_18_121859) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_02_193344) do
   create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "post_id", null: false
@@ -19,6 +19,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_18_121859) do
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer "sender_id", null: false
+    t.integer "receiver_id", null: false
+    t.string "subject"
+    t.string "content", null: false
+    t.boolean "is_opened", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["receiver_id"], name: "index_receiver_id_on_user"
+    t.index ["sender_id"], name: "index_sender_id_on_user"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -66,6 +78,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_18_121859) do
 
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "messages", "users", column: "receiver_id", on_delete: :cascade
+  add_foreign_key "messages", "users", column: "sender_id", on_delete: :cascade
   add_foreign_key "posts", "users"
   add_foreign_key "settings", "users"
   add_foreign_key "votes", "posts"

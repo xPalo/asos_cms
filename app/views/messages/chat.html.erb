@@ -1,0 +1,54 @@
+<div class="container content">
+  <div class="row d-flex justify-content-evenly">
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+      <div class="card">
+        <div class="card-header">Chat</div>
+        <div class="card-body height3">
+          <ul class="chat-list">
+
+            <% @messages.each do |message| %>
+              <% if current_user == message.sender %>
+                <li class="out">
+                  <div class="chat-img">
+                    <img alt="Avtar" src="https://bootdey.com/img/Content/avatar/avatar6.png">
+                  </div>
+                  <div class="chat-body">
+                    <div class="chat-message">
+                      <h5><%= link_to "#{message.sender.full_name}", user_path(message.sender), class: "text-decoration-none text-light" %></h5>
+                      <p><%= message.content %></p>
+                    </div>
+                  </div>
+                </li>
+              <% end %>
+
+              <% if current_user == message.receiver %>
+                <li class="in">
+                  <div class="chat-img">
+                    <img alt="Avtar" src="https://bootdey.com/img/Content/avatar/avatar1.png">
+                  </div>
+                  <div class="chat-body">
+                    <div class="chat-message">
+                      <h5><%= link_to "#{message.sender.full_name}", user_path(message.sender), class: "text-decoration-none text-light" %></h5>
+                      <p><%= message.content %></p>
+                    </div>
+                  </div>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+        <%= form_for(@message, url: user_messages_path(@user)) do |form| %>
+          <div class="m-2">
+            <%= form.text_area :content, class: "form-control", placeholder: t('message.respond') %>
+          </div>
+          <div class="actions">
+            <%= form.submit t('submit'), class: "btn btn-sm btn-outline-dark my-2" %>
+          </div>
+        <% end %>
+      </div>
+      <div class="p-5 mb-4 text-light rounded-3 text-end">
+        <%= link_to "Back", @user, class: "btn btn-outline-primary p-2" %>
+      </div>
+    </div>
+  </div>
+</div>

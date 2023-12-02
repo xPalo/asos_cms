@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :posts, class_name: 'Post', foreign_key: 'user_id', dependent: :destroy
   has_many :comments, class_name: 'Comment', foreign_key: 'user_id', dependent: :destroy
   has_many :votes, class_name: 'Vote', foreign_key: 'user_id', dependent: :destroy
+  has_many :messages, class_name: "Message", foreign_key: "receiver_id"
+  has_many :sent_messages, class_name: "Message", foreign_key: "sender_id"
 
   after_save :create_setting
 

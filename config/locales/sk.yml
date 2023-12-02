@@ -48,6 +48,7 @@ sk:
     settings: "Nastavenia"
     explore: "Objavovať"
     feed: "Feed"
+    message: "Správy"
 
   edit: "Upraviť"
   back: "Späť"
@@ -124,6 +125,26 @@ sk:
     upvotes: "Hlasy za"
     is_public: "Verejný?"
 
+  message:
+    index: "Správy"
+    show: "Správa"
+    edit: "Upraviť správu"
+    new: "Nová správa"
+    delete: "Zmazať"
+    not_found: "Žiadne správy neboli nájdené"
+    updated: "Správa úspešne upravená"
+    created: "Správa úspešne vytvorená"
+    deleted: "Správa úspešne odstránená"
+    subject: "Predmet:"
+    title: "Nadpis"
+    content: "Obsah:"
+    author: "Autor"
+    sender: "Odosielateľ:"
+    receiver: "Príjemca:"
+    actions: "Akcie"
+    show_message: "Zobraziť"
+    respond: "Odpísať"
+
   activerecord:
     models:
       user:
@@ -132,6 +153,17 @@ sk:
       post:
         one: 'Príspevok'
         other: 'Príspevky'
+      message:
+        one: 'Správa'
+        other: 'Správy'
+        new: 'Napísať správu'
+        chat: 'Četovať'
+        send:
+          one: 'Odosielateľ'
+          other: 'Odoslané'
+        receive:
+          one: 'Prijímateľ'
+          other: 'Prijaté'
 
     attributes:
       user:
@@ -164,6 +196,13 @@ sk:
         user_id: 'Autor'
         post: 'Príspevok'
         post_id: 'Príspevok'
+      message:
+        content: 'Obsah'
+        subject: 'Predmet'
+        receiver: 'Príjemca'
+        receiver_id: 'Príjemca'
+        sender: 'Odosielateľ'
+        sender_id: 'Odosielateľ'
     errors:
       models:
         user:
@@ -201,6 +240,10 @@ sk:
             psot_id:
               blank: ' je povinný atribút!'
             post:
+              blank: ' je povinný atribút!'
+        message:
+          attributes:
+            content:
               blank: ' je povinný atribút!'
 
   not_authorized: "Nemáte oprávnenie na manipuláciu"
