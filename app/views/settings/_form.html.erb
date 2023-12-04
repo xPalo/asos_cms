@@ -1,4 +1,6 @@
 <div class="form-signin my-4 mx-auto w-75">
+  <h1 class="text-center my-4"><%= t('setting.index') %></h1>
+  
   <%= form_with(model: setting) do |form| %>
 
     <div class="field form-group">
@@ -15,6 +17,6 @@
       <%= form.select :default_locale, options_for_select(Setting.default_locales.map {|k, v| [I18n.t("#{k}"), v]}, setting.default_locale), class: "form-control" %>
     </div>
 
-    <%= form.submit t('devise.update_btn'), class: "btn btn-lg btn-primary my-auto" %>
+    <%= form.submit t('devise.update_btn'), class: "btn btn-primary m-3" %>
   <% end %>
 </div>

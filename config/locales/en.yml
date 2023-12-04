@@ -107,15 +107,22 @@ en:
     email_desc: "Email ▼"
 
   setting:
+    index: "Edit Settings"
     has_darkmode: "Darkmode"
     default_locale: "Default language"
     updated: "Settings updated successfully"
+
+  profile:
+    index: "User profile"
+
+  explore:
+    index: "Explore"
 
   post:
     index: "Posts"
     show: "Post"
     edit: "Edit post"
-    new: "New post"
+    new: "Create A New Post"
     updated: "Post updated successfully"
     created: "Post created successfully"
     deleted: "Post deleted successfully"
@@ -161,9 +168,9 @@ en:
         chat: 'Chat'
         send:
           one: 'Sender'
-          other: 'Sended'
+          other: 'Sent'
         receive:
-          one: 'Receiver'
+          one: 'Recipient'
           other: 'Received'
 
     attributes:
@@ -199,8 +206,8 @@ en:
         post_id: 'Post'
       message:
         content: 'Content'
-        subject: 'SUbject'
-        receiver: 'Receiver'
+        subject: 'Subject'
+        receiver: 'Recipient'
         receiver_id: 'Receiver'
         sender: 'Sender'
         sender_id: 'Sender'
