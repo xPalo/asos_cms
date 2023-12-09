@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy, :new_comment, :create_comment, :create_vote]
   before_action :authenticate_user!
-  before_action :can_manipulate?, only: [:edit, :update, :destroy, :create, :new]
+  before_action :can_manipulate?, only: [:edit, :update, :destroy]
 
   def index
     @posts = Post.is_public.includes(:user, :comments).search(params[:search_posts])
@@ -19,14 +19,14 @@ class PostsController < ApplicationController
         @posts = @posts.order("content DESC")
 
       when "votes_asc"
-        @posts = @posts.sort_by { |b| -b.votes_count }
-      when "votes_desc"
         @posts = @posts.sort_by { |b| b.votes_count }
+      when "votes_desc"
+        @posts = @posts.sort_by { |b| -b.votes_count }
 
       when "comments_count_asc"
-        @posts = @posts.sort_by { |b| -b.comments_count }
-      when "comments_count_desc"
         @posts = @posts.sort_by { |b| b.comments_count }
+      when "comments_count_desc"
+        @posts = @posts.sort_by { |b| -b.comments_count }
 
       else
         flash[:alert] = t('order.invalid_value')

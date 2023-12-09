@@ -10,7 +10,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :bio, :email, :is_admin, :provider, :uid, :avatar])
   end
 
-
   def set_locale
     if cookies[:lang] && I18n.available_locales.include?(cookies[:lang].to_s.strip.to_sym)
       lang = cookies[:lang].to_s.strip.to_sym
@@ -19,5 +18,9 @@ class ApplicationController < ActionController::Base
       cookies[:lang] = lang
     end
     I18n.locale = lang
+  end
+
+  def set_dark_mode(dark_mode: false)
+    cookies[:dark_mode] = dark_mode.to_s
   end
 end
