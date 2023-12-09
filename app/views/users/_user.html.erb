@@ -1,24 +1,38 @@
-<div class="p-5 mb-4 text-light rounded-3 text-start">
-  <div class="container-fluid py-5">
+<h1 class="text-center my-4"><%= t('profile.index') %></h1>
+
+<div class="text-light rounded-3 text-start">
+  <div class="container-fluid">
 
     <%= render "users/user_card", user: user  %>
 
-    <p class="card-text">
-    <%= link_to t(:back), :back, class: "btn btn-outline-light" %>
+    <div class="card-text">
+      <p class="d-flex justify-content-center">
 
-    <% if user == current_user %>
-      <%= link_to t('header.edit_profile'), edit_user_registration_path, class: "btn btn-outline-warning" %>
-    <% end %>
+        <% if user == current_user %>
+          <button class="btn btn-outline-warning m-1" type="button">
+            <%= link_to t('header.edit_profile'), edit_user_registration_path, class: "text-decoration-none text-reset" %>
+          </button>
+        <% end %>
 
-    <% if user != current_user %>
-      <%= link_to t('activerecord.models.message.new'), new_user_message_path(user.id), class: "btn btn-light" %>
-    <% end %>
+        <% if user != current_user %>
+          <button class="btn btn btn-light m-1" type="button">
+            <%= link_to t('activerecord.models.message.new'), new_user_message_path(user.id), class: "text-decoration-none text-reset" %>
+          </button>
+        <% end %>
 
-      <% if user != current_user %>
-      <%= link_to t('activerecord.models.message.chat'),  user_chat_path(user.id), class: "btn btn-primary" %>
-    <% end %>
+        <% if user != current_user %>
+          <button class="btn btn-primary m-1" type="button">
+            <%= link_to t('activerecord.models.message.chat'),  user_chat_path(user.id), class: "text-decoration-none text-reset" %>
+          </button>
+        <% end %>
 
-    <%= render "users/user_posts"  %>
-    </p>
+        <button class="btn btn-outline-light m-1" type="button">
+          <%= link_to t(:back), :back, class: "text-decoration-none text-reset" %>
+        </button>
+
+      </p>
+
+      <%= render "users/user_posts"  %>
+    </div>
   </div>
 </div>

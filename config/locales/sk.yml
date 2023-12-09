@@ -106,9 +106,16 @@ sk:
     email_desc: "Email ▼"
 
   setting:
+    index: "Upraviť Nastavenia"
     has_darkmode: "Tmavý mód"
     default_locale: "Predvolený jazyk"
     updated: "Nastavenia úspešne upravené"
+
+  profile:
+    index: "Profil užívateľa"
+
+  explore:
+    index: "Objavovať"
 
   post:
     index: "Príspevky"

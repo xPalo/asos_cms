@@ -45,13 +45,13 @@
                                       </div>
 
                                       <div class="actions">
-                                        <%= f.submit t('devise.update_btn'), class: "btn btn-lg btn-light my-4" %>
+                                        <%= f.submit t('devise.update_btn'), class: "btn btn-lg btn-primary my-4" %>
                                           </div>
                                         <% end %>
 
                                         <div class="d-flex justify-content-center">
-                                          <%= link_to t(:back), :back, class: "btn btn-dark my-auto mx-2" %>
-                                            <%= button_to t(:delete), registration_path(resource_name), data: { confirm: "#{t(:delete_confirmatiom)}" }, method: :delete, class: "btn btn-danger my-auto mx-2" %>
+                                          <%= button_to t(:delete), registration_path(resource_name), data: { confirm: "#{t(:delete_confirmatiom)}" }, method: :delete, class: "btn btn-danger my-auto mx-2" %>
+                                            <%= link_to t(:back), :back, class: "btn btn-outline-light my-auto mx-2" %>
                                               </div>
 
                                               </div>

@@ -9,6 +9,8 @@ class SettingsController < ApplicationController
   def update
     respond_to do |format|
       if @setting.update(setting_params)
+        set_dark_mode(dark_mode: @setting.has_darkmode)
+
         format.html { redirect_to user_path(@setting.user), notice: t('setting.updated') }
         format.json { render :show, status: :ok, location: @setting.user }
       else
