@@ -152,6 +152,9 @@ sk:
     show_message: "Zobraziť"
     respond: "Odpísať"
 
+  comment:
+    edit: 'Upraviť komentár'
+
   activerecord:
     models:
       user:
