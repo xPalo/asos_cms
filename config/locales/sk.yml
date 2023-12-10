@@ -154,6 +154,7 @@ sk:
 
   comment:
     edit: 'Upraviť komentár'
+    deleted: 'Komentár bol úspešne odstránený!'
 
   activerecord:
     models:

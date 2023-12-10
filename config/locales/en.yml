@@ -155,6 +155,7 @@ en:
   
   comment:
     edit: 'Edit comment'
+    deleted: 'Comment deleted successfully!'
 
   activerecord:
     models:
