@@ -23,7 +23,8 @@
     <hr>
 
     <div class="actions">
-      <%= form.submit t("button_#{action}"), class: "btn btn-lg btn-light my-auto" %>
+      <%= form.submit t("button_#{action}"), class: "btn btn-primary m-1" %>
+      <%= link_to t('back'), :back, class: 'btn btn-outline-light m-1' %>
     </div>
   <% end %>
 </div>

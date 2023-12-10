@@ -152,6 +152,10 @@ en:
     actions: "Actions"
     show_message: "Show"
     respond: "Respond"
+  
+  comment:
+    edit: 'Edit comment'
+    deleted: 'Comment deleted successfully!'
 
   activerecord:
     models:
